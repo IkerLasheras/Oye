@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ImageBBDD\ImageBBDD.csproj" />
     <ProjectReference Include="..\Proyecto\Proyecto.csproj" />
   </ItemGroup>
 

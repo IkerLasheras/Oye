@@ -16,9 +16,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Proyecto;
+using ImageBBDD;
 using System.IO;
-using Windows.Storage;
+
 using Microsoft.Win32;
+using System.Data.Entity;
+using System.Drawing;
 
 namespace ProyectoVerano2
 {
@@ -52,20 +55,15 @@ namespace ProyectoVerano2
         {
             int id = 0;
 
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["proyecto"].ConnectionString;
-            string script = "SELECT Max(idEmpleado) FROM dbo.Empleados";
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["PruebaCasa"].ConnectionString;
+            string script = "SELECT max(idEmpleado) FROM dbo.Empleados;";
             DataTable dt = new DataTable();
-            BD.RellenarDataTable(dt, script, connectionString);
+            dt = BD.RellenarDataTable(dt, script, connectionString);
 
-            if (!dt.HasErrors)
-            {
-                id = 0;
-            }
-            else
-            {
-                DataRow row = dt.Rows[0];
-                id = (int)row["idEmpleado"];
-            }
+          
+
+           id = (int)dt.Rows[0][0] + 1;
+
             txtID.Text = id.ToString();
 
         }
@@ -73,7 +71,9 @@ namespace ProyectoVerano2
         {
             string comandMod =
                 "INSERT INTO [dbo].[Empleados] " +
-                "([nombre]," +
+                "(" +
+                "[idEmpleado]," +
+                "[nombre]," +
                 "[apellido1]," +
                 "[apellido2]," +
                 "[dni]," +
@@ -88,7 +88,9 @@ namespace ProyectoVerano2
                 ",[fechIncicioContrato]" +
                 ",[imgEmpleado])" +
                 "VALUES" +
-                "(@nombre" +
+                "(" +
+                "@idEmpleado" +
+                ", @nombre" +
                 ", @apellido1" +
                 ", @apellido2" +
                 ", @dni" +
@@ -103,20 +105,22 @@ namespace ProyectoVerano2
                 ", @fechIncicioContrato" +
                 ", @imgEmpleado);";
 
-            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["proyecto"].ConnectionString;
+            string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["PruebaCasa"].ConnectionString;
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
 
             string[] apellidos = txtApellidos.Text.Split(' ');
             string apellido2 = "";
 
-            if (apellidos.Length != 0)
+            if (apellidos.Length != 1)
             {
-                apellido2 = "apellido[1]";
+                apellido2 = apellidos[1];
             }
             DateTime fechaNacimiento = DateTime.ParseExact(txtFechNac.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime fechaInicio = DateTime.ParseExact(txtFechInicio.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
+
+            listaParametros.Add(BD.ObtenerParametro("@idEmpleado", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
             listaParametros.Add(BD.ObtenerParametro("@nombre", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
             listaParametros.Add(BD.ObtenerParametro("@apellido1", SqlDbType.NChar, ParameterDirection.Input, false, apellidos[0]));
             listaParametros.Add(BD.ObtenerParametro("@apellido2", SqlDbType.NChar, ParameterDirection.Input, true, apellido2));
@@ -130,7 +134,7 @@ namespace ProyectoVerano2
             listaParametros.Add(BD.ObtenerParametro("@tipoEmpleado", SqlDbType.Int, ParameterDirection.Input, true, 1));
             listaParametros.Add(BD.ObtenerParametro("@cuentaCredito", SqlDbType.NChar, ParameterDirection.Input, false, txtFIBAN.Text));
             listaParametros.Add(BD.ObtenerParametro("@fechIncicioContrato", SqlDbType.Date, ParameterDirection.Input, true, fechaInicio));
-            listaParametros.Add(BD.ObtenerParametro("@imgEmpleado", SqlDbType.Image, ParameterDirection.Input, false, imgEmpleado));
+            listaParametros.Add(BD.ObtenerParametro("@imgEmpleado", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
 
             BD.LanzarComandoSQLNonQuery(comandMod, connectionString, listaParametros);
 
@@ -142,25 +146,52 @@ namespace ProyectoVerano2
             InsertarDatosBBDD();
         }
 
+        private ImageClass CambiarFotoParaBBDD()
+        {
+            ImageClass images = new ImageClass();
+
+            images.ImagePath = (string)lblUrl.Content;
+
+            if (lblUrl.Content != "")
+            {
+                images.imagen = File.ReadAllBytes((string)lblUrl.Content);
+            }else
+            {
+                images.imagen = null;
+;
+            }
+
+           
+
+            return images;
+
+        }
+
         private async void btnInsertarImg_Click(object sender, RoutedEventArgs e)
         {
-            
-            try
-            {
+
+            { 
+                //ImageClass images = new ImageClass();
+
                 OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.Filter = "Image files | *.jpg";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    txtStudentImage.Text = openFileDialog1.FileName;
-                    pbStudentImage.Image = Image.FromFile(openFileDialog1.FileName);
-                }
+
+
+                openFileDialog1.Filter = "Archivos de imágenes (*.bmp, *.jpg)|*.bmp;*.jpg|Todos los archivos (*.*)|*.*"; 
+
+                openFileDialog1.DefaultExt = ".jpeg";
+
+                openFileDialog1.ShowDialog();
+
+                lblUrl.Content = openFileDialog1.FileName;
+
+                ImageSource imageSource = new BitmapImage(new Uri((string)lblUrl.Content));
+
+                imgEmpleado.Source = imageSource;
+
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
-        
+
     }
 
 }

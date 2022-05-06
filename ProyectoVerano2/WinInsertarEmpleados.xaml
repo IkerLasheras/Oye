@@ -8,48 +8,45 @@
         WindowStyle="None"
         Title="Insertar Empleado" Height="1080" Width="1920" WindowState="Maximized">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="31*"/>
-            <ColumnDefinition Width="609*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="287,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click" Grid.Column="1"/>
-        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="7,0,0,100" Width="220" FontSize="24" FontWeight="Bold" Height="80" VerticalAlignment="Bottom" Click="btnAnterior_Click" Grid.Column="1"/>
-        <Image x:Name="imgEmpleado" HorizontalAlignment="Left" Height="150px" Margin="7,100,0,0" VerticalAlignment="Top" Width="150px" Cursor="Arrow" AllowDrop="True" Grid.Column="1"  />
-        <Button x:Name="btnInsertarImg" Content="INSERTAR IMAGEN" HorizontalAlignment="Left" Margin="7,270,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="btnInsertarImg_Click" Grid.Column="1"/>
-        <Button x:Name="btnBorrarImg" Content="BORRAR IMAGEN" HorizontalAlignment="Left" Margin="7,315,0,0" VerticalAlignment="Top" Height="35" Width="150" Grid.Column="1"/>
-        <Label x:Name="lblNombre" Content="Nombre*" HorizontalAlignment="Left" Margin="517,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="641,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1"/>
-        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,100,100" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click" Grid.Column="1"/>
-        <Label x:Name="lblApellidos" Content="Apellidos*" HorizontalAlignment="Left" Margin="1038,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtApellidos" Margin="1177,150,150,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1"/>
-        <Label x:Name="lblId" Content="Id" HorizontalAlignment="Left" Margin="257,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="305,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False" Grid.Column="1"/>
-        <Rectangle HorizontalAlignment="Left" Height="150" Margin="7,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
-        <Label x:Name="lblFechNac" Content="F. Nac*" HorizontalAlignment="Left" Margin="341,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtFechNac" HorizontalAlignment="Left" Margin="433,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1" />
-        <Label x:Name="lblLocalidad" Content="Localidad" HorizontalAlignment="Left" Margin="681,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtLocalidad" HorizontalAlignment="Left" Margin="805,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1"/>
-        <Label x:Name="lblCP" Content="CP" HorizontalAlignment="Left" Margin="1245,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtCP" HorizontalAlignment="Left" Margin="1293,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1"/>
-        <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="747,470,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Margin="871,466,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1"/>
-        <Label x:Name="lblFInicio" Content="F. Inicio*" HorizontalAlignment="Left" Margin="1409,466,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtFechInicio" HorizontalAlignment="Left" Margin="1507,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1" />
-        <Label x:Name="lblIBAN" Content="IBAN*" HorizontalAlignment="Left" Margin="353,630,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtFIBAN" HorizontalAlignment="Left" Margin="428,626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="525" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1" />
-        <Label x:Name="lblMovil" Content="Móvil" HorizontalAlignment="Left" Margin="1025,630,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtMovil" HorizontalAlignment="Left" Margin="1117,626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1" />
-        <Label x:Name="lblTipo" Content="Tipo" HorizontalAlignment="Left" Margin="345,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="429,768,0,0" Height="50" VerticalAlignment="Top" Width="360" Grid.Column="1"/>
-        <Button Content= "Crear tipo" Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="788,768,0,0" VerticalAlignment="Top" Width="65" Grid.Column="1"/>
-        <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="567,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click" Grid.Column="1"/>
-        <Label x:Name="lblDni" Content="Dni*" HorizontalAlignment="Left" Margin="930,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtDni" HorizontalAlignment="Left" Margin="994,768,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1"/>
-        <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" Margin="62,466,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="138,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="524" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.Column="1" />
-        <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1047,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click" Grid.Column="1"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1507,0,0,349" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="0" Margin="305,651,0,0" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
+        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="380,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
+        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="100,0,0,100" Width="220" FontSize="24" FontWeight="Bold" Height="80" VerticalAlignment="Bottom" Click="btnAnterior_Click"/>
+        <Image x:Name="imgEmpleado" HorizontalAlignment="Left" Height="150px" Margin="100,100,0,0" VerticalAlignment="Top" Width="150px" Cursor="Arrow" AllowDrop="True"  />
+        <Button x:Name="btnInsertarImg" Content="INSERTAR IMAGEN" HorizontalAlignment="Left" Margin="100,270,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="btnInsertarImg_Click"/>
+        <Button x:Name="btnBorrarImg" Content="BORRAR IMAGEN" HorizontalAlignment="Left" Margin="100,315,0,0" VerticalAlignment="Top" Height="35" Width="150"/>
+        <Label x:Name="lblNombre" Content="Nombre*" HorizontalAlignment="Left" Margin="610,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="734,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,100,100" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblApellidos" Content="Apellidos*" HorizontalAlignment="Left" Margin="1131,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtApellidos" Margin="1270,150,150,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblId" Content="Id" HorizontalAlignment="Left" Margin="350,154,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="398,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False"/>
+        <Rectangle HorizontalAlignment="Left" Height="150" Margin="100,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>
+        <Label x:Name="lblFechNac" Content="F. Nac*" HorizontalAlignment="Left" Margin="434,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtFechNac" HorizontalAlignment="Left" Margin="526,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
+        <Label x:Name="lblLocalidad" Content="Localidad" HorizontalAlignment="Left" Margin="774,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtLocalidad" HorizontalAlignment="Left" Margin="898,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <Label x:Name="lblCP" Content="CP" HorizontalAlignment="Left" Margin="1338,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtCP" HorizontalAlignment="Left" Margin="1386,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="840,470,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Margin="964,466,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <Label x:Name="lblFInicio" Content="F. Inicio*" HorizontalAlignment="Left" Margin="1502,466,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtFechInicio" HorizontalAlignment="Left" Margin="1600,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" Grid.ColumnSpan="2" />
+        <Label x:Name="lblIBAN" Content="IBAN*" HorizontalAlignment="Left" Margin="446,630,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtFIBAN" HorizontalAlignment="Left" Margin="521,626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="525" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
+        <Label x:Name="lblMovil" Content="Móvil" HorizontalAlignment="Left" Margin="1118,630,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtMovil" HorizontalAlignment="Left" Margin="1210,626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
+        <Label x:Name="lblTipo" Content="Tipo" HorizontalAlignment="Left" Margin="438,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="522,768,0,0" Height="50" VerticalAlignment="Top" Width="360"/>
+        <Button Content= "Crear tipo" Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="881,768,0,0" VerticalAlignment="Top" Width="65"/>
+        <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
+        <Label x:Name="lblDni" Content="Dni*" HorizontalAlignment="Left" Margin="1023,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtDni" HorizontalAlignment="Left" Margin="1087,768,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" Margin="155,466,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="231,462,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="524" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
+        <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1600,0,0,349" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="0" Margin="398,651,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblUrl" Content="" HorizontalAlignment="Left" Margin="210,768,0,0" VerticalAlignment="Top" IsEnabled="False" Opacity="0"/>
     </Grid>
 </Window>
     
