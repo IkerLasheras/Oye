@@ -25,7 +25,8 @@ namespace ProyectoVerano2
         public CrearTipoEmpleado()
         {
             InitializeComponent();
-            BD.BuscarIDMax("idTipoEmpleado", "dbo.TipoEmpleado",txtID);
+            txtID.Text = "0";
+            EnseniarTipoEmpleadoEnPantalla();
         }
 
         private void btnSiguiente_Click(object sender, RoutedEventArgs e)
@@ -45,6 +46,8 @@ namespace ProyectoVerano2
         private void btnGrabar_Click(object sender, RoutedEventArgs e)
         {
             InsertarEnBBDD();
+            BD.NoEnseniarBoton(btnGrabar);
+            BD.EnseniarBoton(btnCambiar);
         }
 
         private void InsertarEnBBDD()
@@ -57,7 +60,7 @@ namespace ProyectoVerano2
 
             listaParametros.Add(BD.ObtenerParametro("@idTipoEmpleado", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
             listaParametros.Add(BD.ObtenerParametro("@nombreTipoEmpleado", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
-            listaParametros.Add(BD.ObtenerParametro("@sueldoBase", SqlDbType.Decimal, ParameterDirection.Input, false, txtSueldo.Text));
+            listaParametros.Add(BD.ObtenerParametro("@sueldoBase", SqlDbType.Decimal, ParameterDirection.Input, false, Decimal.Parse(txtSueldo.Text)));
 
             BD.LanzarComandoSQLNonQuery(scriptTipoEmpleado,listaParametros);
         }
@@ -70,12 +73,17 @@ namespace ProyectoVerano2
 
             if (dt.Rows.Count > 0)
             {
-                txtNombre.Text = (string)dt.Rows[id]["nombre"];
-                txtSueldo.Text = (string)dt.Rows[id]["sueldoBase"];
+                txtNombre.Text = (string)dt.Rows[id]["nombreTipoEmpleado"];
+                txtSueldo.Text = (string)dt.Rows[id]["sueldoBase"].ToString();
+                BD.EnseniarBoton(btnCambiar);
+                BD.NoEnseniarBoton(btnGrabar);
             }
+           
             else
             {
                 txtID.Text = "0";
+                BD.EnseniarBoton(btnGrabar);
+                BD.NoEnseniarBoton(btnCambiar);
             }
         }
 
@@ -95,6 +103,27 @@ namespace ProyectoVerano2
             {
                 txtID.Text = "0";
             }
+        }
+
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
+        {
+            BD.BuscarIDMax("idTipoEmpleado" , "TipoEmpleado", txtID);
+            txtNombre.Clear();
+            txtSueldo.Clear();
+            BD.EnseniarBoton(btnGrabar);
+            BD.NoEnseniarBoton(btnCambiar);
+        }
+        private void btnCambiar_Click(object sender, RoutedEventArgs e)
+        {
+            string script = "UPDATE [dbo].[TipoEmpleado]" +
+                " SET [nombre] = @nombre " +
+                ",[sueldoBase] = @sueldoBase " +
+                "WHERE idTipoEMpleado = @idTipoEmpleado;";
+
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+
+            listaParametros.Add(BD.ObtenerParametro("@nombre", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
+            listaParametros.Add(BD.ObtenerParametro("@sueldoBase", SqlDbType.Decimal, ParameterDirection.Input, false, Decimal.Parse(txtSueldo.Text)));
         }
     }
 }

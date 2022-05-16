@@ -17,7 +17,8 @@
         <Button x:Name="btnSalir" Content="Salir" Margin="0,0,26,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnSalir_Click"/>
         <Button x:Name="btnSiguiente" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="51" Margin="0,0,666,26" Content="&gt;&gt;" Click="btnSiguiente_Click"/>
         <Button x:Name="btnAnterior" Content="&lt;&lt;" Margin="26,0,727,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" Click="btnAnterior_Click" />
-        <Button x:Name="btnGrabar" Content="Grabar" Margin="0,0,389,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnGrabar_Click"/>
-        <Button x:Name="btnNuevo" Content="Nuevo" Margin="0,0,208,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162"/>
+        <Button x:Name="btnGrabar" Content="Grabar" Margin="0,0,218,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnGrabar_Click"/>
+        <Button x:Name="btnNuevo" Content="Nuevo" Margin="0,0,409,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnNuevo_Click"/>
+        <Button x:Name="btnCambiar" Content="Cambiar" Margin="0,0,218,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnCambiar_Click"/>
     </Grid>
 </Window>

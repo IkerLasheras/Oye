@@ -17,7 +17,7 @@ namespace Proyecto
 {
     public class BD
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["PruebaCasa"].ConnectionString;
+        static string connectionString = ConfigurationManager.ConnectionStrings["Proyecto"].ConnectionString;
           
         public static SqlConnection CrearConexion()
         {

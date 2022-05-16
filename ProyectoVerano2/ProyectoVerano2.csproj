@@ -17,4 +17,20 @@
     <ProjectReference Include="..\Proyecto\Proyecto.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Productos\WinProductos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Productos\WinCategoriaProducto.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Productos\WinProductos.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

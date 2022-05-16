@@ -28,8 +28,7 @@ namespace ProyectoVerano2
             EnseniarEmpleadoEnPantalla();
             EnseniarTipoEmpleado(TiposEmpleado());
 
-            btnGuardar.IsEnabled = false;
-            btnGuardar.Visibility = Visibility.Collapsed;
+            
         }
 
         bool insertoImagen = false;
@@ -43,7 +42,6 @@ namespace ProyectoVerano2
             catch (Exception ex)
             {
                 BD.DisminuirID(txtID);
-                txtID.Text = (Int32.Parse(txtID.Text) - 1).ToString();
             }
         }
 
@@ -213,9 +211,14 @@ namespace ProyectoVerano2
                 cbTipo.SelectedIndex = (int)dt.Rows[id]["tipoEmpleado"];
                 txtDni.Text = (string)dt.Rows[id]["dni"];
                 imgEmpleado.Source = ObtenerImgBBDD(dt, id);
+
+                BD.EnseniarBoton(btnCambiar);
+                BD.NoEnseniarBoton(btnGuardar);
             }
             else
             {
+                BD.EnseniarBoton(btnGuardar);
+                BD.NoEnseniarBoton(btnCambiar);
                 txtID.Text = "0";
             }
         }
@@ -240,6 +243,11 @@ namespace ProyectoVerano2
                 textBox.Clear();
             }
             imgEmpleado.Source = null;
+            cbTipo.SelectedIndex = 0;
+
+            
+
+
         }
 
         private void btnAnterior_Click(object sender, RoutedEventArgs e)

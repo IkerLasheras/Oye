@@ -30,5 +30,12 @@ namespace ProyectoVerano2
 
             winInsertarEmpleados.ShowDialog();
         }
+
+        private void btnWinAniadirpProductos_Click(object sender, RoutedEventArgs e)
+        {
+            Window winProductos = new WinProductos();
+
+            winProductos.ShowDialog();
+        }
     }
 }
