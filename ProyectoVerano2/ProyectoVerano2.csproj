@@ -18,16 +18,51 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Bebidas\WinBebidas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Platos\WinPlatos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Productos\WinProductos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Proveedores\WinProveedores.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Bebidas\WinBebidas.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Bebidas\WinTipoBebidas.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Mesas\WinMesas.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Platos\WinPlatos.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Platos\WinTipoPlato.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Productos\WinUbicacionProducto.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="Productos\WinCategoriaProducto.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="Productos\WinProductos.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Proveedores\WinProveedores.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

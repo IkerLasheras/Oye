@@ -10,6 +10,10 @@
     <Grid>
         <Button x:Name="btnWinAniadirEmpleados" Content="EMPLEADOS" HorizontalAlignment="Left" Margin="283,165,0,0" VerticalAlignment="Top" Click="btnWinAniadirEmpleados_Click" Height="194" Width="235" FontSize="24"/>
         <Button x:Name="btnWinAniadirpProductos" Content="PRODUCTOS" HorizontalAlignment="Left" Margin="789,165,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinAniadirpProductos_Click"/>
+        <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Height="51" Margin="1616,940,0,0" VerticalAlignment="Top" Width="176" Click="Salir_Click"/>
+        <Button x:Name="btnWinaniadirPlatos" Content="PLATOS" HorizontalAlignment="Left" Margin="1393,165,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirPlatos_Click"/>
+        <Button x:Name="btnWinaniadirBebidas" Content="BEBIDAS" HorizontalAlignment="Left" Margin="1393,502,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirBebidas_Click"/>
+        <Button x:Name="btnWinaniadirProveedor" Content="PROVEEDORES" HorizontalAlignment="Left" Margin="787,505,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirProveedor_Click"/>
 
     </Grid>
 </Window>

@@ -56,19 +56,19 @@ namespace ProyectoVerano2
 
         private void InsertarEnBBDD()
         {
-            string script= "INSERT INTO [dbo].[Categorias] ([idCategoria],[descripcionCategoria],[nombre]) VALUES (@idCategoria, @descripcionCategoria, @nombre);";
+            string script= "INSERT INTO [dbo].[Categorias] ([idCategoria],[descripcionCategoria],[nombrecategoria]) VALUES (@idCategoria, @descripcionCategoria, @nombreCategoria);";
             string scriptImg = "INSERT INTO [dbo].[Categorias] ([imgCategoria]) VALUES (@imgCategoria);";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
 
             listaParametros.Add(BD.ObtenerParametro("@idCategoria", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
-            listaParametros.Add(BD.ObtenerParametro("@descripcionCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
-            listaParametros.Add(BD.ObtenerParametro("@nombre", SqlDbType.NChar, ParameterDirection.Input, false, Decimal.Parse(txtDescripcion.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@descripcionCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtDescripcion.Text));
+            listaParametros.Add(BD.ObtenerParametro("@nombreCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
 
            
 
-            listaParametrosImg.Add(BD.ObtenerParametro("@imgEmpleado", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
+            listaParametrosImg.Add(BD.ObtenerParametro("@imgCategoria", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
 
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
@@ -89,8 +89,9 @@ namespace ProyectoVerano2
 
             if (dt.Rows.Count > 0)
             {
-                txtNombre.Text = (string)dt.Rows[id]["nombre"];
+                txtNombre.Text = (string)dt.Rows[id]["nombreCategoria"];
                 txtDescripcion.Text = (string)dt.Rows[id]["descripcionCategoria"];
+                imgCategoriaProducto.Source = ObtenerImgBBDD(dt, id);
                 BD.EnseniarBoton(btnCambiar);
                 BD.NoEnseniarBoton(btnGrabar);
             }
@@ -133,21 +134,23 @@ namespace ProyectoVerano2
         private void btnCambiar_Click(object sender, RoutedEventArgs e)
         {
             string script = "UPDATE [dbo].[Categorias]" +
-                " SET [nombre] = @nombre " +
-                ",[descripcion] = @descripcion " +
+                " SET [nombreCategoria] = @nombreCategoria " +
+                ",[descripcionCategoria] = @descripcionCategoria " +
                 "WHERE idCategoria = @idCategoria;";
 
             string scriptImg = "Update [dbo].[Categorias]" +
-                "set[imgCategoria] = imgCategoria";
+                "set[imgCategoria] = @imgCategoria " +
+                "where [idCategoria] = @idImgCategoria;";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
 
-            listaParametros.Add(BD.ObtenerParametro("@nombre", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
-            listaParametros.Add(BD.ObtenerParametro("@descripcion", SqlDbType.Decimal, ParameterDirection.Input, false, Decimal.Parse(txtDescripcion.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@idCategoria", SqlDbType.Int, ParameterDirection.Input, false, Int32.Parse(txtID.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@nombreCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
+            listaParametros.Add(BD.ObtenerParametro("@descripcionCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtDescripcion.Text));
 
             listaParametrosImg.Add(BD.ObtenerParametro("@imgCategoria", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
-
+            listaParametrosImg.Add(BD.ObtenerParametro("@idImgCategoria", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
 
@@ -179,7 +182,7 @@ namespace ProyectoVerano2
             ImageClass images = new ImageClass();
             if (!Convert.IsDBNull(dt.Rows[id]["imgCategoria"]))
             {
-                var result = dt.Rows[id]["imgcategoria"];
+                var result = dt.Rows[id]["imgCategoria"];
                 Stream StreamObj = new MemoryStream((byte[])result);
 
                 BitmapImage BitObj = new BitmapImage();

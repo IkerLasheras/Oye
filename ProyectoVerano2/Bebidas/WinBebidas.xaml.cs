@@ -17,17 +17,17 @@ namespace ProyectoVerano2
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class WinProductos : Window
+    public partial class WinBebidas : Window
     {
 
-        public WinProductos()
+        public WinBebidas()
         {
             
             InitializeComponent();
             txtID.Text = "0";
             EnseniarEnPantalla();
-            EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"),cbCategoria);
-            EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
+            EnseniarComboBox(obtenerDataComboBox("dbo.TipoBebida", "nombre"), cbTipo);
+            ;
 
 
         }
@@ -39,8 +39,7 @@ namespace ProyectoVerano2
             {
                 BD.IncrementarID(txtID);
                 EnseniarEnPantalla();
-                EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
-                EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
+                EnseniarComboBox(obtenerDataComboBox("dbo.TipoBebida", "nombre"), cbTipo);
             }
             catch (Exception ex)
             {
@@ -61,44 +60,33 @@ namespace ProyectoVerano2
         public void InsertarDatos()
         {
             string script =
-                "INSERT INTO [dbo].[Productos] " +
+                "INSERT INTO [dbo].[Bebidas] " +
                 "(" +
-                "[idProducto]," +
-                "[codigoProducto]," +
-                "[nombreProducto]," +
-                "[cantidadStock]," +
-                "[unidadMedida]," +
-                "[costeUnitario]" +
-                ",[categoriaProducto]," +
-                "[ubicacion])" +
+                "[idBebida]," +
+                "[precio]," +
+                "[tipoBebida]," +
+                "[nombreBebida])"+
                 "VALUES" +
                 "(" +
-                "@idProducto" +
-                ", @nombreProducto" +
-                ", @codigoProducto" +
-                ", @cantidadStock" +
-                ", @unidadMedida" +
-                ", @costeUnitario" +
-                ", @categoriaProducto" +
-                ", @ubicacion);";
+                "@idBebida" +
+                ", @precio" +
+                ", @tipoBebida" +
+                ", @nombreBebida);";
                
 
-            string scriptImagen = "INSERT INTO [dbo].[Productos] ([imgProducto]) VALUES (@imgProducto) ;";
+            string scriptImagen = "INSERT INTO [dbo].[Bebidas] ([imgBebida]) VALUES (@imgBebida) ;";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
 
-            listaParametros.Add(BD.ObtenerParametro("@idProducto", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
-            listaParametros.Add(BD.ObtenerParametro("@nombreProducto", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
-            listaParametros.Add(BD.ObtenerParametro("@codigoProducto", SqlDbType.NChar, ParameterDirection.Input, false, txtCodigo.Text.ToString()));
-            listaParametros.Add(BD.ObtenerParametro("@cantidadStock", SqlDbType.Int, ParameterDirection.Input, false, Int32.Parse(txtCantidadStock.Text)));
-            listaParametros.Add(BD.ObtenerParametro("@unidadMedida", SqlDbType.NChar, ParameterDirection.Input, false, txtUMedida.Text.ToString()));
-            listaParametros.Add(BD.ObtenerParametro("@costeUnitario", SqlDbType.Float, ParameterDirection.Input, false, float.Parse(txtCosteUnitario.Text)));
-            listaParametros.Add(BD.ObtenerParametro("@categoriaProducto", SqlDbType.Int, ParameterDirection.Input, false, cbCategoria.SelectedIndex));
-            listaParametros.Add(BD.ObtenerParametro("@ubicacion", SqlDbType.Int, ParameterDirection.Input, false, cbUbicacion.SelectedIndex));
+            listaParametros.Add(BD.ObtenerParametro("@idBebida", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@precio", SqlDbType.Float, ParameterDirection.Input, false, float.Parse(txtPrecio.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@tipoBebida", SqlDbType.Int, ParameterDirection.Input, false, cbTipo.SelectedIndex));
+            listaParametros.Add(BD.ObtenerParametro("@nombreBebida", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
 
-            listaParametrosImg.Add(BD.ObtenerParametro("@imgProducto", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
-            listaParametrosImg.Add(BD.ObtenerParametro("@idProducto", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
+
+            listaParametrosImg.Add(BD.ObtenerParametro("@imgBebida", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
+            listaParametrosImg.Add(BD.ObtenerParametro("@idBebida", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
 
@@ -139,16 +127,16 @@ namespace ProyectoVerano2
         private async void btnInsertarImg_Click(object sender, RoutedEventArgs e)
         {
             insertoImagen = true;
-            BD.InsertarImagen(imgProducto,lblUrl,insertoImagen);
+            BD.InsertarImagen(imgBebida,lblUrl,insertoImagen);
         }
 
         private BitmapImage ObtenerImgBBDD(DataTable dt, int id)
         {
 
             ImageClass images = new ImageClass();
-            if (!Convert.IsDBNull(dt.Rows[id]["imgProducto"]))
+            if (!Convert.IsDBNull(dt.Rows[id]["imgBebida"]))
             {
-                var result = dt.Rows[id]["imgProducto"];
+                var result = dt.Rows[id]["imgBebida"];
                 Stream StreamObj = new MemoryStream((byte[])result);
 
                 BitmapImage BitObj = new BitmapImage();
@@ -170,21 +158,17 @@ namespace ProyectoVerano2
         private void EnseniarEnPantalla()
         {
             int id = Int32.Parse(txtID.Text);
-            string script = "SELECT * FROM dbo.Productos;";
+            string script = "SELECT * FROM dbo.Bebidas;";
             DataTable dt = new DataTable();
             dt = BD.RellenarDataTable(dt, script);
 
             if (dt.Rows.Count > 0)
             {
-                txtNombre.Text = (string)dt.Rows[id]["nombreProducto"];
-                txtCodigo.Text = (string)dt.Rows[id]["codigoProducto"];
-                txtCantidadStock.Text = dt.Rows[id]["cantidadStock"].ToString();
-                txtUMedida.Text = (string)dt.Rows[id]["unidadMedida"];
-                txtCosteUnitario.Text = dt.Rows[id]["costeUnitario"].ToString();
-                cbCategoria.SelectedIndex = (int)dt.Rows[id]["categoriaProducto"];
-                cbUbicacion.SelectedIndex = (int)dt.Rows[id]["ubicacion"];
+                txtNombre.Text = (string)dt.Rows[id]["nombreBebida"];
+                txtPrecio.Text = dt.Rows[id]["precio"].ToString();
+                cbTipo.SelectedIndex = (int)dt.Rows[id]["tipoBebida"];
                 
-                imgProducto.Source = ObtenerImgBBDD(dt, id);
+                imgBebida.Source = ObtenerImgBBDD(dt, id);
 
                 BD.EnseniarBoton(btnCambiar);
                 BD.NoEnseniarBoton(btnGuardar);
@@ -199,7 +183,7 @@ namespace ProyectoVerano2
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            BD.BuscarIDMax("idProducto", "Productos" , txtID);
+            BD.BuscarIDMax("idBebida", "Bebidas" , txtID);
             vaciarCeldas();
 
             btnGuardar.IsEnabled = true;
@@ -210,8 +194,8 @@ namespace ProyectoVerano2
 
         private void vaciarCeldas()
         {
-            TextBox[] textBoxes = { txtNombre, txtCantidadStock, txtCodigo, txtCosteUnitario, txtUMedida};
-            ComboBox[] comboBoxes = { cbCategoria, cbUbicacion };
+            TextBox[] textBoxes = { txtNombre, txtPrecio};
+            ComboBox[] comboBoxes = { cbTipo };
             foreach (TextBox textBox in textBoxes)
             {
                 textBox.Clear();
@@ -221,7 +205,7 @@ namespace ProyectoVerano2
                 comboBox.SelectedIndex = 0;
             }
 
-            imgProducto.Source = null;
+            imgBebida.Source = null;
 
         }
 
@@ -231,8 +215,7 @@ namespace ProyectoVerano2
             {
                 BD.DisminuirID(txtID);
                 EnseniarEnPantalla();
-                EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
-                EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
+                EnseniarComboBox(obtenerDataComboBox("dbo.TipoBebida", "nombre"), cbTipo);
             }
             catch (Exception ex)
             {
@@ -242,35 +225,26 @@ namespace ProyectoVerano2
 
         private void Modificar()
         {
-            string script = "UPDATE [dbo].[Productos]" +
-                " SET [nombreProducto] = @nombreProducto " +
-                ",[codigoProducto = @codigoProducto " +
-                ",[cantidadStock] = @cantidadStock " +
-                ",[categoriaProducto] = @categoriaProducto " +
-                ",[costeUnitario] = @costeUnitario " +
-                ",[unidadMedida] = @unidadMedida " +
-                ",[ubicacion] = @ubicacion " +
-                "WHERE idProducto = @idProducto;";
+            string script = "UPDATE [dbo].[Bebidas]" +
+                " SET [nombreBebida] = @nombreBebida " +
+                ",[precio] = @precio " +
+                ",[tipoBebida] = @tipoBebida; ";
 
-            string scriptImg = "UPDATE [dbo].[Productos] SET [imgProducto] = @imgProducto WHERE [idProducto] = @idProducto";
+            string scriptImg = "UPDATE [dbo].[Bebidas] SET [imgBebida] = @imgBebida WHERE [idBebida] = @idBebida";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
 
 
-            listaParametros.Add(BD.ObtenerParametro("@idProducto", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
-            listaParametros.Add(BD.ObtenerParametro("@nombreProducto", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
-            listaParametros.Add(BD.ObtenerParametro("@codigoProducto", SqlDbType.NChar, ParameterDirection.Input, false, txtCodigo.Text));
-            listaParametros.Add(BD.ObtenerParametro("@cantidad", SqlDbType.Int, ParameterDirection.Input, false, Int32.Parse(txtCantidadStock.Text)));
-            listaParametros.Add(BD.ObtenerParametro("@unidadMedida", SqlDbType.NChar, ParameterDirection.Input, false, txtUMedida.Text));
-            listaParametros.Add(BD.ObtenerParametro("@costeUnitario", SqlDbType.Float, ParameterDirection.Input, false, float.Parse(txtCosteUnitario.Text)));
-            listaParametros.Add(BD.ObtenerParametro("@categoriaProducto", SqlDbType.Int, ParameterDirection.Input, false, cbCategoria.SelectedItem));
-            listaParametros.Add(BD.ObtenerParametro("@ubicacion", SqlDbType.Int, ParameterDirection.Input, false, cbUbicacion.SelectedIndex));
+            listaParametros.Add(BD.ObtenerParametro("@idBebida", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@nombreBebida", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
+            listaParametros.Add(BD.ObtenerParametro("@precio", SqlDbType.Float, ParameterDirection.Input, false, float.Parse(txtPrecio.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@tipoBebida", SqlDbType.Int, ParameterDirection.Input, false, cbTipo.SelectedIndex));
 
             if (insertoImagen)
             {
-                listaParametrosImg.Add(BD.ObtenerParametro("@imgProducto", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
-                listaParametrosImg.Add(BD.ObtenerParametro("@idProducto", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
+                listaParametrosImg.Add(BD.ObtenerParametro("@imgBebida", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
+                listaParametrosImg.Add(BD.ObtenerParametro("@idBebida", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
                 BD.LanzarComandoSQLNonQuery(scriptImg, listaParametrosImg);
             }
             insertoImagen = false;
@@ -286,8 +260,8 @@ namespace ProyectoVerano2
 
         private void btnCrearTipo_Click(object sender, RoutedEventArgs e)
         {
-            Window crearTipoEmpleado = new CrearTipoEmpleado();
-            crearTipoEmpleado.ShowDialog();
+            Window crearTipoBebida = new WinTipoBebida();
+            crearTipoBebida.ShowDialog();
         }
 
         private string[] obtenerDataComboBox(string tabla ,string columnaNombre)
@@ -340,16 +314,6 @@ namespace ProyectoVerano2
             }
         }
 
-        private void btnCrearCategoria_Click(object sender, RoutedEventArgs e)
-        {
-            Window categoria = new WinCategoriaProducto();
-            categoria.ShowDialog();
-        }
-
-        private void btnCrearUbicacion_Click(object sender, RoutedEventArgs e)
-        {
-            Window ubicacion = new WinUbicacionProducto();
-            ubicacion.ShowDialog();
-        }
+      
     }
 }

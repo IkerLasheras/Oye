@@ -37,5 +37,31 @@ namespace ProyectoVerano2
 
             winProductos.ShowDialog();
         }
+
+        private void Salir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnWinaniadirPlatos_Click(object sender, RoutedEventArgs e)
+        {
+            Window winPlatos = new WinPlatos();
+
+            winPlatos.ShowDialog();
+        }
+
+        private void btnWinaniadirBebidas_Click(object sender, RoutedEventArgs e)
+        {
+            Window winBebidas = new WinBebidas();
+
+            winBebidas.ShowDialog();
+        }
+
+        private void btnWinaniadirProveedor_Click(object sender, RoutedEventArgs e)
+        {
+            Window winProveedores = new WinProveedores();
+
+            winProveedores.ShowDialog();
+        }
     }
 }

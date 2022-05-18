@@ -244,10 +244,6 @@ namespace ProyectoVerano2
             }
             imgEmpleado.Source = null;
             cbTipo.SelectedIndex = 0;
-
-            
-
-
         }
 
         private void btnAnterior_Click(object sender, RoutedEventArgs e)

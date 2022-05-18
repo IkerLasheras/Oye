@@ -34,11 +34,11 @@
         <TextBox x:Name="txtFIBAN" HorizontalAlignment="Left" Margin="429,626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="525" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
         <Label x:Name="lblMovil" Content="Móvil" HorizontalAlignment="Left" Margin="1026,630,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="txtMovil" HorizontalAlignment="Left" Margin="1118,626,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
-        <Label x:Name="lblTipo" Content="Tipo" HorizontalAlignment="Left" Margin="346,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="430,768,0,0" Height="50" VerticalAlignment="Top" Width="360" FontSize="24"/>
-        <Button Content= "Crear tipo" Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="789,768,0,0" VerticalAlignment="Top" Width="65" Click="btnCrearTipo_Click"/>
-        <Label x:Name="lblDni" Content="Dni*" HorizontalAlignment="Center" Margin="0,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtDni" HorizontalAlignment="Left" Margin="995,768,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <Label x:Name="lblTipo" Content="Tipo" HorizontalAlignment="Left" Margin="319,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="403,768,0,0" Height="50" VerticalAlignment="Top" Width="360" FontSize="24"/>
+        <Button Content= "Crear tipo" Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="762,768,0,0" VerticalAlignment="Top" Width="65" Click="btnCrearTipo_Click"/>
+        <Label x:Name="lblDni" Content="Dni*" HorizontalAlignment="Left" Margin="903,772,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtDni" HorizontalAlignment="Left" Margin="968,768,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
         <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnNuevo_Click"/>
         <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click"/>

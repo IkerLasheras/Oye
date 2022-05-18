@@ -1,0 +1,21 @@
+﻿<Window x:Class="ProyectoVerano2.WinMesas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoVerano2"
+        mc:Ignorable="d"   
+        WindowStyle="None"
+        Title="Insertar Empleado" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,100,100" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnNevo" Content="Nuevo" Margin="99,0,1601,99" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" Width="220" Click="btnSalir_Click" Canvas.Left="37" Canvas.Top="883"/>
+        <Canvas Height="810" Margin="25,25,25,0" VerticalAlignment="Top" Name="canvas">
+
+
+        </Canvas>
+        <Button x:Name="btnBorrar" Content="Borrar" Margin="359,0,1341,99" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" Width="220" Click="btnSalir_Click"/>
+
+    </Grid>
+</Window>
+    

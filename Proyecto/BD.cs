@@ -17,7 +17,7 @@ namespace Proyecto
 {
     public class BD
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["Proyecto"].ConnectionString;
+        static string connectionString = ConfigurationManager.ConnectionStrings["PruebaCasa"].ConnectionString;
           
         public static SqlConnection CrearConexion()
         {
@@ -88,7 +88,7 @@ namespace Proyecto
             catch (Exception e)
             {
               
-             }
+            }
            
         }
         public static void AniadirParametroComandos(SqlCommand comando, List<SqlParameter> listaParametros)
