@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using Proyecto;
+using ProyectoVerano2.Empleados;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,7 +26,7 @@ namespace ProyectoVerano2
             
             InitializeComponent();
             txtID.Text = "0";
-            EnseniarEmpleadoEnPantalla();
+            EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
             EnseniarTipoEmpleado(TiposEmpleado());
 
             
@@ -37,7 +38,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
-                EnseniarEmpleadoEnPantalla();
+                EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
             {
@@ -189,9 +190,9 @@ namespace ProyectoVerano2
             }
         }
 
-        private void EnseniarEmpleadoEnPantalla()
+        public void EnseniarEmpleadoEnPantalla(int id)
         {
-            int id = Int32.Parse(txtID.Text);
+            //int id = Int32.Parse(txtID.Text);
             string script = "SELECT * FROM dbo.Empleados;";
             DataTable dt = new DataTable();
             dt = BD.RellenarDataTable(dt, script);
@@ -251,7 +252,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
-                EnseniarEmpleadoEnPantalla();
+                EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
             {
@@ -355,6 +356,13 @@ namespace ProyectoVerano2
             {
                 cbTipo.Items.Add(tipos[i]);
             }
+        }
+
+        private void btnListado_Click(object sender, RoutedEventArgs e)
+        {
+            Window listado = new Lista();
+            listado.ShowDialog();
+
         }
     }
 }

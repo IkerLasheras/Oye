@@ -63,5 +63,12 @@ namespace ProyectoVerano2
 
             winProveedores.ShowDialog();
         }
+
+        private void btnWinaniadirTPV_Click(object sender, RoutedEventArgs e)
+        {
+            Window winTPV = new TPV.TPV();
+            winTPV.ShowDialog();
+
+        }
     }
 }

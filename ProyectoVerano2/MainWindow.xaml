@@ -14,6 +14,7 @@
         <Button x:Name="btnWinaniadirPlatos" Content="PLATOS" HorizontalAlignment="Left" Margin="1393,165,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirPlatos_Click"/>
         <Button x:Name="btnWinaniadirBebidas" Content="BEBIDAS" HorizontalAlignment="Left" Margin="1393,502,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirBebidas_Click"/>
         <Button x:Name="btnWinaniadirProveedor" Content="PROVEEDORES" HorizontalAlignment="Left" Margin="787,505,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirProveedor_Click"/>
+        <Button x:Name="btnWinaniadirTPV" Content="TPV" HorizontalAlignment="Left" Margin="283,492,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirTPV_Click"/>
 
     </Grid>
 </Window>
