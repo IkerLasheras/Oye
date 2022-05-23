@@ -19,7 +19,7 @@
         <Label x:Name="lblLocalidad" Content="Localidad" HorizontalAlignment="Left" Margin="306,346,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="txtLocalidad" HorizontalAlignment="Left" Margin="448,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="510" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" />
         <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnNuevo_Click"/>
-        <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
+        <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnListado_Click"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click"/>
         <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="380,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
         <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="100,0,0,100" Width="220" FontSize="24" FontWeight="Bold" Height="80" VerticalAlignment="Bottom" Click="btnAnterior_Click"/>

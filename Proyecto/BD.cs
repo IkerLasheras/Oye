@@ -58,8 +58,14 @@ namespace Proyecto
             dt = CrearDataTable(da);
 
             AbrirConexion(connection, command);
+            try
+            {
+                da.Fill(dt);
+            }catch(Exception ex)
+            {
 
-            da.Fill(dt);
+            }
+        
 
             return dt;
         }

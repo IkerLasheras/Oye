@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 
 
-namespace ProyectoVerano2
+namespace ProyectoVerano2.Mesas
 {
     /// <summary>
     /// Lógica de interacción para Window1.xaml
@@ -12,7 +12,7 @@ namespace ProyectoVerano2
         public WinMesas()
         {
             
-            InitializeComponent();
+            
             
             
             

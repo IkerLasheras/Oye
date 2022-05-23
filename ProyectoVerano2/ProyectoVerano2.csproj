@@ -18,13 +18,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Bebidas\ListaBebidas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Bebidas\WinBebidas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Platos\ListaPlatos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Platos\ListaProductos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Platos\WinPlatos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Productos\ListaProductos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Productos\WinProductos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Proveedores\ListaProveedores.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Proveedores\WinProveedores.xaml.cs">
@@ -33,6 +48,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Bebidas\ListaBebidas.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Bebidas\WinBebidas.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -44,11 +63,23 @@
     <Page Update="Mesas\WinMesas.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
+    <Page Update="Platos\ListaPlatos.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Platos\ListaProductos.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Platos\WinPlatos.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Platos\WinTipoPlato.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Productos\ListaProductos.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -59,6 +90,10 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
     <Page Update="Productos\WinProductos.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Proveedores\ListaProveedores.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

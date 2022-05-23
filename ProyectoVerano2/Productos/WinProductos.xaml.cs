@@ -24,8 +24,12 @@ namespace ProyectoVerano2
         {
             
             InitializeComponent();
-            txtID.Text = "0";
-            EnseniarEnPantalla();
+            if (txtID.Text == "")
+            {
+                txtID.Text = "0";
+            }
+           
+            EnseniarEnPantalla(Int32.Parse(txtID.Text));
             EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"),cbCategoria);
             EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
 
@@ -38,9 +42,8 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
-                EnseniarEnPantalla();
-                EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
-                EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
+                EnseniarEnPantalla(Int32.Parse(txtID.Text));
+                
             }
             catch (Exception ex)
             {
@@ -167,9 +170,9 @@ namespace ProyectoVerano2
             }
         }
 
-        private void EnseniarEnPantalla()
+        private void EnseniarEnPantalla(int id)
         {
-            int id = Int32.Parse(txtID.Text);
+            txtID.Text = id.ToString();
             string script = "SELECT * FROM dbo.Productos;";
             DataTable dt = new DataTable();
             dt = BD.RellenarDataTable(dt, script);
@@ -230,9 +233,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
-                EnseniarEnPantalla();
-                EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
-                EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
+                EnseniarEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
             {
@@ -350,6 +351,13 @@ namespace ProyectoVerano2
         {
             Window ubicacion = new WinUbicacionProducto();
             ubicacion.ShowDialog();
+        }
+
+        private void btnListado_Click(object sender, RoutedEventArgs e)
+        {
+            Window listado = new Productos.ListaProductos();
+            listado.ShowDialog();
+            EnseniarEnPantalla(Productos.ListaProductos.id);
         }
     }
 }

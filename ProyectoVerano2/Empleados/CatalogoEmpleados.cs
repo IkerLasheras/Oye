@@ -14,18 +14,18 @@ namespace ProyectoVerano2.Empleados
         {
             string script = "SELECT * FROM dbo.Empleados;";
             DataTable dt = new DataTable();
-            dt = BD.RellenarDataTable(dt, script);
+            dt = BD.RellenarDataTable(dt, Lista.scriptBusquedaEmpleados);
 
            
 
             List<Empleados> lstEmpleados = new List<Empleados>();
             for(int i = 0; i < dt.Rows.Count; i++) {
 
-                string script2 = "SELECT nombreTipoEmpleado from tipoEmpleado where idTipoEmpleado = " + (string)dt.Rows[i]["tipoEmpleado"];
+                string script2 = "SELECT nombreTipoEmpleado from tipoEmpleado where idTipoEmpleado = " + dt.Rows[i]["tipoEmpleado"].ToString();
                 DataTable dt2 = new DataTable();
                 dt2 = BD.RellenarDataTable(dt2, script2);
 
-                lstEmpleados.Add(new Empleados { ID = (int)dt.Rows[i]["idEmpleado"], Nombre = (string)dt.Rows[i]["nombre"], Apellido = (string)dt.Rows[i]["apellido1"], DNI = (string)dt.Rows[i]["dni"], Tipo = (string)dt2.Rows[0][0] });
+                lstEmpleados.Add(new Empleados { ID  = (int)dt.Rows[i]["idEmpleado"], Nombre = (string)dt.Rows[i]["nombre"], Apellido = (string)dt.Rows[i]["apellido1"], DNI = (string)dt.Rows[i]["dni"], Tipo = (string)dt2.Rows[0][0] });
 
             }
 

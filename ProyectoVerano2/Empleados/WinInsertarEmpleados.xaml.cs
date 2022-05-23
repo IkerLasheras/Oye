@@ -25,7 +25,12 @@ namespace ProyectoVerano2
         {
             
             InitializeComponent();
-            txtID.Text = "0";
+            if(txtID.Text == "")
+            {
+                txtID.Text = "0";
+
+            }
+
             EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
             EnseniarTipoEmpleado(TiposEmpleado());
 
@@ -192,7 +197,7 @@ namespace ProyectoVerano2
 
         public void EnseniarEmpleadoEnPantalla(int id)
         {
-            //int id = Int32.Parse(txtID.Text);
+            txtID.Text = id.ToString();
             string script = "SELECT * FROM dbo.Empleados;";
             DataTable dt = new DataTable();
             dt = BD.RellenarDataTable(dt, script);
@@ -362,6 +367,8 @@ namespace ProyectoVerano2
         {
             Window listado = new Lista();
             listado.ShowDialog();
+
+            EnseniarEmpleadoEnPantalla(Empleados.Lista.id);
 
         }
     }

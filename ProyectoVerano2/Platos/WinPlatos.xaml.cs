@@ -22,11 +22,17 @@ namespace ProyectoVerano2
 
         public WinPlatos()
         {
-            
+
+         
             InitializeComponent();
+            if (txtID.Text == "")
+            {
+                txtID.Text = "0";
+            }
             txtID.Text = "0";
-            EnseniarEnPantalla();
+            EnseniarEnPantalla(Int32.Parse(txtID.Text));
             EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
+            
             ;
 
 
@@ -38,8 +44,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
-                EnseniarEnPantalla();
-                EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
+                EnseniarEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
             {
@@ -155,9 +160,9 @@ namespace ProyectoVerano2
             }
         }
 
-        private void EnseniarEnPantalla()
+        private void EnseniarEnPantalla(int id)
         {
-            int id = Int32.Parse(txtID.Text);
+            txtID.Text = id.ToString();
             string script = "SELECT * FROM dbo.Platos;";
             DataTable dt = new DataTable();
             dt = BD.RellenarDataTable(dt, script);
@@ -169,6 +174,7 @@ namespace ProyectoVerano2
                 cbTipo.SelectedIndex = (int)dt.Rows[id]["tipoPlato"];
                 
                 imgPlato.Source = ObtenerImgBBDD(dt, id);
+                enseniarIngedientes();
 
                 BD.EnseniarBoton(btnCambiar);
                 BD.NoEnseniarBoton(btnGuardar);
@@ -214,8 +220,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
-                EnseniarEnPantalla();
-                EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
+                EnseniarEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
             {
@@ -314,6 +319,81 @@ namespace ProyectoVerano2
             }
         }
 
-       
+        private void btnListado_Click(object sender, RoutedEventArgs e)
+        {
+            Window winListado = new Platos.ListaPlatos();
+            winListado.ShowDialog();
+            EnseniarEnPantalla(Platos.ListaPlatos.id);
+        }
+
+        private void btnAniadir_Click(object sender, RoutedEventArgs e)
+        {
+            Window listadoProductos = new Platos.ListaProductos();
+            listadoProductos.ShowDialog();
+
+            if(Platos.ListaProductos.id != null || Platos.ListaProductos.name != "")
+            {
+
+                lvIngredientes.Items.Add(Platos.ListaProductos.id + " - " + Platos.ListaProductos.name);
+                aniadirIngrediente();
+
+            }
+        }
+
+        private void aniadirIngrediente()
+        {
+            string script =
+                "INSERT INTO [dbo].[IngredientesPlatos] " +
+                "(" +
+                "[idPlato]," +
+                "[idProducto])" +
+                "VALUES" +
+                "(" +
+                "@idPlato" +
+                ", @idProducto);";
+
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+
+            listaParametros.Add(BD.ObtenerParametro("@idPlato", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@idProducto", SqlDbType.Int, ParameterDirection.Input, false, Platos.ListaProductos.id));
+
+            BD.LanzarComandoSQLNonQuery(script, listaParametros);
+
+        }
+
+        private void enseniarIngedientes()
+        {
+            string script = "select idProducto , codigoProducto , nombreProducto from productos where idProducto in( select idProducto from IngredientesPlatos where idPlato = " + txtID.Text + ")";
+            DataTable dt = new DataTable();
+            dt = BD.RellenarDataTable(dt, script);
+
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                lvIngredientes.Items.Add(dt.Rows[i][0] + " - " + dt.Rows[i][1] /*+ " - " + dt.Rows[i][2]*/);
+            }
+
+
+        }
+
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            if(lvIngredientes.SelectedIndex!= -1)
+            {
+
+           
+                string script ="DELETE FROM[dbo].[IngredientesPlatos] WHERE idPlato = " + txtID.Text + " and idProducto = " + lvIngredientes.SelectedValue.ToString().Split(" - ")[0];
+
+                SqlConnection connection = BD.CrearConexion();
+                SqlCommand command = BD.CrearComando(connection, script);
+                BD.AbrirConexion(connection, command);
+                BD.EjecutarQuery(command);
+
+            lvIngredientes.Items.RemoveAt(lvIngredientes.SelectedIndex);
+            lvIngredientes.Items.Refresh();
+            }
+
+
+
+        }
     }
 }

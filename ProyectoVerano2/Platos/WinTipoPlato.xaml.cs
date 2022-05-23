@@ -28,7 +28,7 @@ namespace ProyectoVerano2
         {
             InitializeComponent();
             txtID.Text = "0";
-            EnseniarTipoEmpleadoEnPantalla();
+            EnseniarTipoPlatoEnPantalla();
 
         }
 
@@ -37,7 +37,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
-                EnseniarTipoEmpleadoEnPantalla();
+                EnseniarTipoPlatoEnPantalla();
             }
             catch (Exception ex)
             {
@@ -49,7 +49,6 @@ namespace ProyectoVerano2
         private void btnGrabar_Click(object sender, RoutedEventArgs e)
         {
             InsertarEnBBDD();
-            insertoImagen = false;
             BD.NoEnseniarBoton(btnGrabar);
             BD.EnseniarBoton(btnCambiar);
         }
@@ -59,7 +58,7 @@ namespace ProyectoVerano2
             string script = "INSERT INTO [dbo].[TipoPlatos] ([idTipoPlato],[nombreTipo]) VALUES (@idTipoPlato, @nombreTipo);";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
+       
 
             listaParametros.Add(BD.ObtenerParametro("@idTipoPlato", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
             listaParametros.Add(BD.ObtenerParametro("@nombreTipo", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
@@ -67,7 +66,7 @@ namespace ProyectoVerano2
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
         }
     
-    private void EnseniarTipoEmpleadoEnPantalla()
+    private void EnseniarTipoPlatoEnPantalla()
         {
             int id = Int32.Parse(txtID.Text);
             string script = "SELECT * FROM dbo.TipoPlatos;";
@@ -99,7 +98,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
-                EnseniarTipoEmpleadoEnPantalla();
+               //EnseniarTipoEmpleadoEnPantalla();
             }
             catch (Exception ex)
             {
@@ -116,14 +115,15 @@ namespace ProyectoVerano2
         }
         private void btnCambiar_Click(object sender, RoutedEventArgs e)
         {
-            string script = "UPDATE [dbo].[TiposPlatos]" +
+            string script = "UPDATE [dbo].[TipoPlatos]" +
                 " SET [nombreTipo] = @nombreTipo " +
                 "WHERE idTipoPlato = @idTipoPlato;";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
+           
 
             listaParametros.Add(BD.ObtenerParametro("@nombreTipo", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
+            listaParametros.Add(BD.ObtenerParametro("@idTipoPlato", SqlDbType.NChar, ParameterDirection.Input, false, txtID.Text));
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
 
