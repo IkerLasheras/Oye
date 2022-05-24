@@ -8,7 +8,6 @@
         WindowStyle="None"
         Title="TPV" Height="1080" Width="1920" WindowState="Maximized">
     <Grid x:Name="grid">
-       
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="540"/>
@@ -28,12 +27,16 @@
             HorizontalScrollBarVisibility="Visible"
               VerticalScrollBarVisibility="Disabled">
             <StackPanel 
-            x:Name="spCategoria"
+           
+            
+            x:Name="grupo"
             Orientation="Horizontal"
            
             Margin="20,10,20,10">
 
-              
+                <Button x:Name="btnPlatos" Width="200" Margin="0,0,20,0" Content="PLATOS" FontSize="32" Click="btnPlatos_Click"></Button>
+                <Button x:Name="btnBebidas" Width="200" Margin="0,0,20,0" Content="BEBIDAS" FontSize="32" Click="btnBebidas_Click"></Button>
+                
 
             </StackPanel>
         </ScrollViewer>
@@ -44,20 +47,40 @@
             Grid.Row="1"
             HorizontalScrollBarVisibility="Visible"
                       VerticalScrollBarVisibility="Disabled"
+                      
                         >
             <StackPanel
-                Name="spTipo"
-                Orientation="Horizontal"
-                        Margin="20,10,20,10">
+                Name="sp1"
+                Orientation="Horizontal">
+                <ItemsControl Name="ic" ItemsSource="{Binding Path=TipoBotones}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="10"
+                                      Margin="10,10,10,10"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
 
-                
+                            <Button 
+                            Click="{Binding click}"
+                            Width="200"
+                            Height="110"
+                           >
+
+                            </Button>
+
+                        </DataTemplate>
+
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </StackPanel>
         </ScrollViewer>
 
         <ScrollViewer
             Grid.Row="2"
             Grid.Column="2">
-            <ItemsControl ItemsSource="{Binding Path=Botones}">
+            <ItemsControl ItemsSource="{Binding Path=SubTipoBotones}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="6"
@@ -66,12 +89,13 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
+
                         <Button 
                             Click="{Binding click}"
                             Width="200"
                             Height="110"
                            >
-                           
+
                         </Button>
 
                     </DataTemplate>
@@ -81,7 +105,7 @@
         </ScrollViewer>
         <DataGrid Grid.Row="2">
             <DataGrid.Columns>
-                         
+                <DataGridTextColumn x:Name="Id"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Rectangle 
@@ -100,7 +124,6 @@
             FontFamily="DS-Digital"/>
 
 
-    <Button Grid.Column="1" Grid.Row="3"  x:Name="btnSalir" Content="Salir" Margin="0,0,100,100" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>
