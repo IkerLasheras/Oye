@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoVerano2.Bebidas
 {
-     class ObtenerCatalogoBebidas
+     class ObtenerCatalogoMesas
     {
-        public List<Bebidas> GetBebidasActives()
+        public List<Mesas> GetBebidasActives()
         {
             CatalogoBebidas catalogoBebidas = new CatalogoBebidas();
 

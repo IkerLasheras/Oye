@@ -24,6 +24,12 @@
     <Compile Update="Bebidas\WinBebidas.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Mesas\ListaMesas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Mesas\WinMesas.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Platos\ListaPlatos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -60,8 +66,13 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Mesas\ListaMesas.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Mesas\WinMesas.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
     </Page>
     <Page Update="Platos\ListaPlatos.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>

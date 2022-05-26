@@ -37,7 +37,7 @@ namespace ProyectoVerano2.TPV
             }
            
            
-                    InitializeComponent();
+             InitializeComponent();
         }
 
         public void CrearSubTipoBotones()
@@ -58,7 +58,7 @@ namespace ProyectoVerano2.TPV
 
                 DataContext = this;
             }
-            this.AddChild(TipoBotones);
+            
         }
 
         public void CrearTipoBotones(string script)

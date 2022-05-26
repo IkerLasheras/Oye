@@ -141,6 +141,25 @@ namespace Proyecto
             txt.Text = id.ToString();
         }
 
+        public static int BuscarUltimoPedido()
+        {
+            int id = 0;
+            string script = "SELECT max(idPedidos) FROM  PedidoMesa;";
+
+            DataTable dt = new DataTable();
+            dt = RellenarDataTable(dt, script);
+            try
+            {
+                id = Int32.Parse((string)dt.Rows[0][0]) + 1;
+            }catch (Exception ex)
+            {
+                id = 0;
+            }
+            
+
+            return id;
+        }
+
         public static void EnseniarBoton(Button boton)
         {
             boton.IsEnabled = true;

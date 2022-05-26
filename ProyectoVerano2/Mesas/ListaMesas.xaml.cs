@@ -12,12 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ProyectoVerano2.Bebidas
+namespace ProyectoVerano2.Mesas
 {
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class ListaBebidas : Window
+    public partial class ListaMesas : Window
     {
 
 
@@ -25,8 +25,8 @@ namespace ProyectoVerano2.Bebidas
 
 
         public static int id = 0;
-        public static string scriptBusquedaBebidas = "SELECT * FROM dbo.Bebidas;";
-        public ListaBebidas()
+        public static string scriptBusquedaMesas = "SELECT * FROM dbo.Mesas;";
+        public ListaMesas()
         {
             InitializeComponent();
             EnseniarBebidas();
@@ -34,17 +34,17 @@ namespace ProyectoVerano2.Bebidas
 
         private void EnseniarBebidas()
         {
-            ObtenerCatalogoMesas obtenerCatalogoBebidas = new ObtenerCatalogoMesas();
-            List<Mesas> lista = obtenerCatalogoBebidas.GetBebidasActives();
+            ObtenerCatalogoMesas obtenerCatalogoMesas = new ObtenerCatalogoMesas();
+            List<Mesas> lista = obtenerCatalogoMesas.GetMesasActives();
 
-            this.dtgBebidas.ItemsSource = lista;
+            this.dtgMesas.ItemsSource = lista;
         }
 
         private void dtgEmpleadpos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(dtgBebidas.SelectedIndex != -1)
+            if(dtgMesas.SelectedIndex != -1)
             {
-                Mesas? bebida = this.dtgBebidas.SelectedItem as Mesas;
+                Mesas? bebida = this.dtgMesas.SelectedItem as Mesas;
 
                 id = bebida.ID;
                 Close();
@@ -56,16 +56,13 @@ namespace ProyectoVerano2.Bebidas
 
         private void Buscar()
         {
-            if (cbCampoBusqueda.SelectedItem == cbNombre)
+            if (cbCampoBusqueda.SelectedItem == cbUbicacion)
             {
-                scriptBusquedaBebidas = "SELECT * FROM dbo.Bebidas where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " like '" + txtValor.Text + "%';";
+                scriptBusquedaMesas = "SELECT * FROM dbo.Mesas where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " like '" + txtValor.Text + "%';";
             }
-            else if(cbCampoBusqueda.SelectedItem == cbTipoBebida)
+            else 
             {
-                scriptBusquedaBebidas = "select * from bebidas where tipobebida = ( select idTipoEmpleado from TipoEmpleado where nombreTipoBebida like '" + txtValor.Text +"%'); ";
-            }
-            else {
-                scriptBusquedaBebidas = "SELECT * FROM dbo.bebidas where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";
+                scriptBusquedaMesas = "SELECT * FROM dbo.Mesas where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";
             }
             EnseniarBebidas();
         }

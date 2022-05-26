@@ -4,18 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoVerano2.Bebidas
+namespace ProyectoVerano2.Mesas
 {
     internal class Mesas
     {
 
         public int ID { get; set; }
 
-        public string NombreBebida { get; set; }
-
-        public double Precio { get; set; }
-
-        public string TipoBebida { get; set; }
+        public string Ubicacion { get; set; }
 
     }
 }

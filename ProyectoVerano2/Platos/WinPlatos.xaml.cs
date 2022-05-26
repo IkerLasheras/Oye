@@ -33,7 +33,7 @@ namespace ProyectoVerano2
             EnseniarEnPantalla(Int32.Parse(txtID.Text));
             EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
             
-            ;
+            
 
 
         }
