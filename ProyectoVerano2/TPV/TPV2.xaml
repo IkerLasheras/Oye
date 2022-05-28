@@ -79,7 +79,6 @@
 
         <Button Grid.Column="2" Grid.Row="4"  x:Name="btnSalir" Content="Salir" Margin="0,0,53,70" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click"/>
         <Button Grid.Column="2" Grid.Row="4"  x:Name="btnGuardar" Content="Guardar" Margin="0,0,369,70" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnGuardar_Click"/>
-        <Button Grid.Row="4"  x:Name="btnConfiguracion" Content="Configuración" Margin="53,0,0,70" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="220" Click="btnConfiguracion_Click"/>
 
     </Grid>
 </Window>

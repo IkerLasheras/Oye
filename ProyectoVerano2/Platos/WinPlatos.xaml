@@ -11,29 +11,29 @@
         <Rectangle HorizontalAlignment="Left" Height="150" Margin="100,100,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>
         <Rectangle HorizontalAlignment="Left"  Height="708" Margin="312,109,0,0" Stroke="Black" VerticalAlignment="Top" Width="534" />
         <Image x:Name="imgPlato" HorizontalAlignment="Left" Height="150px" Margin="100,100,0,0" VerticalAlignment="Top" Width="150px" Cursor="Arrow" AllowDrop="True"  />
-        <Button x:Name="btnInsertarImg" Content="INSERTAR IMAGEN" HorizontalAlignment="Left" Margin="100,270,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="btnInsertarImg_Click"/>
-        <Button x:Name="btnBorrarImg" Content="BORRAR IMAGEN" HorizontalAlignment="Left" Margin="100,315,0,0" VerticalAlignment="Top" Height="35" Width="150"/>
+        <Button x:Name="btnInsertarImg" Content="INSERTAR IMAGEN" HorizontalAlignment="Left" Margin="100,270,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="btnInsertarImg_Click" TabIndex="9"/>
+        <Button x:Name="btnBorrarImg" Content="BORRAR IMAGEN" HorizontalAlignment="Left" Margin="100,315,0,0" VerticalAlignment="Top" Height="35" Width="150" TabIndex="10"/>
         <Label x:Name="lblId" Content="Id" HorizontalAlignment="Left" Margin="1007,269,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="1055,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="1055,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False" TabIndex="1"/>
         <Label x:Name="lblNombre" Content="Nombre*" HorizontalAlignment="Left" Margin="1201,272,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="1326,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
-        <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnNuevo_Click"/>
-        <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnListado_Click"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="1326,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2"/>
+        <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnNuevo_Click" TabIndex="14"/>
+        <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnListado_Click" TabIndex="15"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click"/>
-        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="380,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click"/>
-        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="100,0,0,100" Width="220" FontSize="24" FontWeight="Bold" Height="80" VerticalAlignment="Bottom" Click="btnAnterior_Click"/>
-        <Button x:Name="btnCambiar" Content="Cambiar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnCambiar_Click"/>
-        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,100,100" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSiguiente" Content="Siguiente" HorizontalAlignment="Left" Margin="380,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnSiguiente_Click" TabIndex="13"/>
+        <Button x:Name="btnAnterior" Content="Anterior" HorizontalAlignment="Left" Margin="100,0,0,100" Width="220" FontSize="24" FontWeight="Bold" Height="80" VerticalAlignment="Bottom" Click="btnAnterior_Click" TabIndex="12"/>
+        <Button x:Name="btnCambiar" Content="Cambiar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnCambiar_Click" TabIndex="11"/>
+        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,100,100" VerticalAlignment="Bottom" Height="80" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="btnSalir_Click" Grid.ColumnSpan="2" TabIndex="16"/>
         <Label x:Name="lblTipoPlato" Content="Tipo" HorizontalAlignment="Left" Margin="1257,505,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <ListView x:Name="lvIngredientes" HorizontalAlignment="Left" Height="507" Margin="327,174,0,0" VerticalAlignment="Top" Width="501" >
+        <ListView x:Name="lvIngredientes" HorizontalAlignment="Left" Height="507" Margin="327,174,0,0" VerticalAlignment="Top" Width="501" TabIndex="6" >
 
         </ListView>
-        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="1330,502,0,0" VerticalAlignment="Top" Width="300" Height="50" FontSize="24"/>
-        <Button Content= "Crear tipo" x:Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="1629,502,0,0" VerticalAlignment="Top" Width="65" Click="btnCrearTipo_Click"/>
-        <Button x:Name="btnAniadir" Content="Añadir" HorizontalAlignment="Left" Margin="335,0,0,293" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnAniadir_Click"/>
-        <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="594,0,0,292" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnBorrar_Click"/>
+        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="1330,502,0,0" VerticalAlignment="Top" Width="300" Height="50" FontSize="24" AllowDrop="True" TabIndex="4"/>
+        <Button Content= "Crear tipo" x:Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="1629,502,0,0" VerticalAlignment="Top" Width="65" Click="btnCrearTipo_Click" TabIndex="5"/>
+        <Button x:Name="btnAniadir" Content="Añadir" HorizontalAlignment="Left" Margin="335,0,0,293" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnAniadir_Click" TabIndex="7"/>
+        <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="594,0,0,292" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnBorrar_Click" TabIndex="8"/>
         <Label x:Name="lblPrecio" Content="Precio" HorizontalAlignment="Left" Margin="967,505,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="1070,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="1070,501,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="3"/>
         <Label x:Name="lblUrl" Content="" HorizontalAlignment="Left" Margin="210,768,0,0" VerticalAlignment="Top" IsEnabled="False" Opacity="0"/>
         <Label x:Name="lblIngredientes" Content="Ingredientes" HorizontalAlignment="Left" Margin="501,117,0,0" VerticalAlignment="Top"  FontSize="24" />
     </Grid>

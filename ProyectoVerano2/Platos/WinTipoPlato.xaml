@@ -9,9 +9,9 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="160,244,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtNombre" Margin="341,240,159,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24"/>
+        <TextBox x:Name="txtNombre" Margin="341,240,159,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2"/>
         <Label x:Name="lblID" Content="ID" HorizontalAlignment="Left" Margin="228,144,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="341,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="341,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" RenderTransformOrigin="0.5,0.5" TabIndex="1">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -22,12 +22,12 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label x:Name="lblPlatos" Content="Tipo de Plato" Margin="289,32,289,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,26,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnSalir_Click"/>
-        <Button x:Name="btnSiguiente" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="51" Margin="0,0,666,26" Content="&gt;&gt;" Click="btnSiguiente_Click"/>
-        <Button x:Name="btnAnterior" Content="&lt;&lt;" Margin="26,0,727,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" Click="btnAnterior_Click" />
+        <Button x:Name="btnSalir" Content="Salir" Margin="0,0,26,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnSalir_Click" TabIndex="7"/>
+        <Button x:Name="btnSiguiente" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="51" Margin="0,0,666,26" Content="&gt;&gt;" Click="btnSiguiente_Click" TabIndex="4"/>
+        <Button x:Name="btnAnterior" Content="&lt;&lt;" Margin="26,0,727,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" Click="btnAnterior_Click" TabIndex="3" />
         <Button x:Name="btnGrabar" Content="Grabar" Margin="0,0,218,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnGrabar_Click"/>
-        <Button x:Name="btnNuevo" Content="Nuevo" Margin="0,0,409,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnNuevo_Click"/>
-        <Button x:Name="btnCambiar" Content="Cambiar" Margin="0,0,218,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnCambiar_Click"/>
+        <Button x:Name="btnNuevo" Content="Nuevo" Margin="0,0,409,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnNuevo_Click" TabIndex="5"/>
+        <Button x:Name="btnCambiar" Content="Cambiar" Margin="0,0,218,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnCambiar_Click" TabIndex="6"/>
 
     </Grid>
 </Window>

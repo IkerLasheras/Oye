@@ -19,7 +19,7 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="4" x:Name="dtgProductos" SelectionChanged="dtgEmpleadpos_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="True" CanUserDeleteRows="True" >
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="4" x:Name="dtgProductos" SelectionChanged="dtgEmpleadpos_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="True" CanUserDeleteRows="True" TabIndex="1" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ID" Header="ID" Binding="{Binding Path=ID}" Width="80" />
                 <DataGridTextColumn x:Name="Nombre" Header="Nombre" Binding="{Binding Path=NombreProducto}" Width="200"/>
@@ -33,7 +33,7 @@
             Grid.Column="1"
             Name ="txtValor"
             Width="300"
-            Height="50" FontSize="24" KeyUp="txtValor_KeyUp"
+            Height="50" FontSize="24" KeyUp="txtValor_KeyUp" TabIndex="3"
             />
 
         <ComboBox
@@ -41,7 +41,7 @@
             Grid.Column="0"
             Name="cbCampoBusqueda"
             Width="150"
-            Height="50" FontSize="24"
+            Height="50" FontSize="24" TabIndex="2"
             >
 
             <ComboBoxItem Name ="cbID" Tag ="ID" Content="idPlato" FontSize="24"/>
@@ -51,7 +51,7 @@
             
         </ComboBox> 
         
-        <Button x:Name="btnSalir" Content="Salir" Margin="189,29,0,28" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="162" Click="btnSalir_Click" Grid.Column="1" Grid.Row="2"/>
+        <Button x:Name="btnSalir" Content="Salir" Margin="189,29,0,28" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="162" Click="btnSalir_Click" Grid.Column="1" Grid.Row="2" TabIndex="4"/>
 
     </Grid>
 </Window>
