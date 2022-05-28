@@ -31,9 +31,6 @@ namespace ProyectoVerano2
                 txtID.Text = "0";
             }
             EnseniarEnPantalla(Int32.Parse(txtID.Text));
-           
-            ;
-
 
         }
 
@@ -177,14 +174,16 @@ namespace ProyectoVerano2
             }
             else
             {
-                checkBox |= 2;
+                checkBox = 0;
             }
             string script = "UPDATE [dbo].[Mesas]" +
                 " SET [ubicacion] = @ubicacion " +
-                ",[disponible] = @disponible ";
+                ",[disponible] = @disponible " +
+                "where [idMesa] = @idMesa";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            
+
+            listaParametros.Add(BD.ObtenerParametro("@idMesa", SqlDbType.Int, ParameterDirection.Input, true, Int32.Parse(txtID.Text)));
             listaParametros.Add(BD.ObtenerParametro("@ubicacion", SqlDbType.NChar, ParameterDirection.Input, false, txtUbicacion.Text));
             listaParametros.Add(BD.ObtenerParametro("@disponible", SqlDbType.Float, ParameterDirection.Input, false, checkBox));
 

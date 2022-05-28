@@ -28,7 +28,7 @@ namespace ProyectoVerano2
         {
             InitializeComponent();
             txtID.Text = "0";
-            EnseniarTipoEmpleadoEnPantalla();
+            EnseniarCategoriaEnPantalla();
 
         }
 
@@ -37,7 +37,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
-                EnseniarTipoEmpleadoEnPantalla();
+                EnseniarCategoriaEnPantalla();
             }
             catch (Exception ex)
             {
@@ -57,7 +57,9 @@ namespace ProyectoVerano2
         private void InsertarEnBBDD()
         {
             string script= "INSERT INTO [dbo].[Categorias] ([idCategoria],[descripcionCategoria],[nombrecategoria]) VALUES (@idCategoria, @descripcionCategoria, @nombreCategoria);";
-            string scriptImg = "INSERT INTO [dbo].[Categorias] ([imgCategoria]) VALUES (@imgCategoria);";
+            string scriptImg = "Update [dbo].[Categorias]" +
+               "set[imgCategoria] = @imgCategoria " +
+               "where [idCategoria] = @idImgCategoria;";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
@@ -66,8 +68,8 @@ namespace ProyectoVerano2
             listaParametros.Add(BD.ObtenerParametro("@descripcionCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtDescripcion.Text));
             listaParametros.Add(BD.ObtenerParametro("@nombreCategoria", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
 
-           
 
+            listaParametrosImg.Add(BD.ObtenerParametro("@idImgCategoria", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
             listaParametrosImg.Add(BD.ObtenerParametro("@imgCategoria", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
 
 
@@ -80,7 +82,7 @@ namespace ProyectoVerano2
         }
 
     
-    private void EnseniarTipoEmpleadoEnPantalla()
+    private void EnseniarCategoriaEnPantalla()
         {
             int id = Int32.Parse(txtID.Text);
             string script = "SELECT * FROM dbo.Categorias;";
@@ -106,7 +108,7 @@ namespace ProyectoVerano2
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void btnAnterior_Click(object sender, RoutedEventArgs e)
@@ -114,7 +116,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
-                EnseniarTipoEmpleadoEnPantalla();
+                EnseniarCategoriaEnPantalla();
             }
             catch (Exception ex)
             {

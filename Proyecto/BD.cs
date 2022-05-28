@@ -144,7 +144,7 @@ namespace Proyecto
         public static int BuscarUltimoPedido()
         {
             int id = 0;
-            string script = "SELECT max(idPedidos) FROM  PedidoMesa;";
+            string script = "SELECT max(idPedidos) FROM  Pedidos;";
 
             DataTable dt = new DataTable();
             dt = RellenarDataTable(dt, script);
@@ -174,6 +174,10 @@ namespace Proyecto
 
         public static async void InsertarImagen(Image img , Label lbl , bool insertoImagen)
         {
+            try
+            {
+
+          
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
             openFileDialog1.Filter = "Archivos de imágenes (*.bmp, *.jpg)|*.bmp;*.jpg|Todos los archivos (*.*)|*.*";
@@ -183,12 +187,17 @@ namespace Proyecto
             openFileDialog1.ShowDialog();
 
             lbl.Content = openFileDialog1.FileName;
-
+            
             ImageSource imageSource = new BitmapImage(new Uri((string)lbl.Content));
 
             img.Source = imageSource;
 
             insertoImagen = true;
+
+            }catch(Exception ex)
+            {
+                insertoImagen = false;
+            }
 
         }
     }

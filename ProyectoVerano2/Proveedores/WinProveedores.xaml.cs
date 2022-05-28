@@ -48,11 +48,6 @@ namespace ProyectoVerano2
             }
         }
 
-        private TextBox GetTxtID()
-        {
-            return txtID;
-        }
-
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -83,7 +78,7 @@ namespace ProyectoVerano2
                 ", @telefono);";
                
 
-            string scriptImagen = "INSERT INTO [dbo].[Proveedores] ([imgProveedor]) VALUES (@imgProveedor) ;";
+            string scriptImagen = "UPDATE[dbo].[Proveedores] SET[imgProveedor] = @imgProveedor WHERE[idProveedor] = @idProveedor";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
@@ -284,11 +279,7 @@ namespace ProyectoVerano2
             insertoImagen = false;
         }
 
-        private void btnCrearTipo_Click(object sender, RoutedEventArgs e)
-        {
-            Window crearTipoEmpleado = new CrearTipoEmpleado();
-            crearTipoEmpleado.ShowDialog();
-        }
+       
 
         private string[] obtenerDataComboBox(string tabla ,string columnaNombre)
         {
@@ -311,29 +302,9 @@ namespace ProyectoVerano2
             return tipos;
 
         }
-
-        //private string[] TiposEmpleado()
-        //{
-        //    string script = "select nombreTipoEmpleado from tipoEmpleado";
-        //    string scriptCantidadTipo = "select count(*) as cantidad from TipoEmpleado";
-
-        //    DataTable dt2 = new DataTable();
-        //    dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
-        //    int cantidadTipos = (int)dt2.Rows[0]["cantidad"];
-
-        //    string[] tipos = new string[cantidadTipos];
-
-        //    DataTable dt = new DataTable();
-        //    dt = BD.RellenarDataTable(dt, script);
-            
-        //    for(int i = 0; i<cantidadTipos; i++)
-        //    {
-        //        tipos[i] = (string)dt.Rows[i]["nombreTipoEmpleado"];
-        //    }
-        //    return tipos;
-        //}
         private void EnseniarComboBox(string[] tipos, ComboBox cb)
         {
+            cb.Items.Clear();
             for (int i = 0; i < tipos.Length; i++)
             {
                cb.Items.Add(tipos[i]);
@@ -344,12 +315,7 @@ namespace ProyectoVerano2
         {
             Window categoria = new WinCategoriaProducto();
             categoria.ShowDialog();
-        }
-
-        private void btnCrearUbicacion_Click(object sender, RoutedEventArgs e)
-        {
-            Window ubicacion = new WinUbicacionProducto();
-            ubicacion.ShowDialog();
+            EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
         }
 
         private void btnListado_Click(object sender, RoutedEventArgs e)

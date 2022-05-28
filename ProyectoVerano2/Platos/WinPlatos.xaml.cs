@@ -44,6 +44,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
+                lvIngredientes.Items.Clear();
                 EnseniarEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
@@ -79,7 +80,7 @@ namespace ProyectoVerano2
                 ", @nombrePlato);";
                
 
-            string scriptImagen = "INSERT INTO [dbo].[Platos] ([imgPlato]) VALUES (@imgplato) ;";
+            string scriptImagen = "UPDATE [dbo].[Platos] SET [imgPlato] = @imgPlato WHERE [idPlato] = @idPlato";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
@@ -210,7 +211,7 @@ namespace ProyectoVerano2
             {
                 comboBox.SelectedIndex = 0;
             }
-
+            lvIngredientes.Items.Clear();
             imgPlato.Source = null;
 
         }
@@ -220,6 +221,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
+                lvIngredientes.Items.Clear();
                 EnseniarEnPantalla(Int32.Parse(txtID.Text));
             }
             catch (Exception ex)
@@ -233,7 +235,8 @@ namespace ProyectoVerano2
             string script = "UPDATE [dbo].[Platos]" +
                 " SET [nombrePlato] = @nombrePlato " +
                 ",[precio] = @precio " +
-                ",[tipoPlato] = @tipoPlato; ";
+                ",[tipoPlato] = @tipoPlato" +
+                " WHERE [idPlato] = @idPlato";
 
             string scriptImg = "UPDATE [dbo].[Platos] SET [imgPlato] = @imgPlato WHERE [idPlato] = @idPlato";
 
@@ -267,6 +270,7 @@ namespace ProyectoVerano2
         {
             Window crearTipoPlato = new WinTipoPlato();
             crearTipoPlato.ShowDialog();
+            EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
         }
 
         private string[] obtenerDataComboBox(string tabla ,string columnaNombre)
@@ -313,6 +317,7 @@ namespace ProyectoVerano2
         //}
         private void EnseniarComboBox(string[] tipos, ComboBox cb)
         {
+            cb.Items.Clear();
             for (int i = 0; i < tipos.Length; i++)
             {
                cb.Items.Add(tipos[i]);
@@ -323,6 +328,7 @@ namespace ProyectoVerano2
         {
             Window winListado = new Platos.ListaPlatos();
             winListado.ShowDialog();
+            lvIngredientes.Items.Clear();
             EnseniarEnPantalla(Platos.ListaPlatos.id);
         }
 

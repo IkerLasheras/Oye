@@ -97,7 +97,8 @@ namespace ProyectoVerano2
                 ", @cuentaCredito" +
                 ", @fechIncicioContrato);";
 
-            string scriptImagen = "INSERT INTO [dbo].[Empleados] ([imgEmpleado]) VALUES (@imgEmpleado);";
+
+            string scriptImg = "UPDATE [dbo].[Empleados] SET [imgEmpleado] = @imgEmpleado WHERE idEmpleado = @idEmpleadoImg";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
@@ -127,15 +128,18 @@ namespace ProyectoVerano2
             listaParametros.Add(BD.ObtenerParametro("@tipoEmpleado", SqlDbType.Int, ParameterDirection.Input, false, cbTipo.SelectedIndex));
             listaParametros.Add(BD.ObtenerParametro("@fechIncicioContrato", SqlDbType.Date, ParameterDirection.Input, true, fechaInicio));
 
-            listaParametrosImg.Add(BD.ObtenerParametro("@imgEmpleado", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
+          
 
 
             BD.LanzarComandoSQLNonQuery(comandMod, listaParametros);
 
             if (insertoImagen)
             {
-                BD.LanzarComandoSQLNonQuery(scriptImagen, listaParametrosImg);
+                listaParametrosImg.Add(BD.ObtenerParametro("@idEmpleadoImg", SqlDbType.Int, ParameterDirection.Input, true, txtID.Text));
+                listaParametrosImg.Add(BD.ObtenerParametro("@imgEmpleado", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
+                BD.LanzarComandoSQLNonQuery(scriptImg, listaParametrosImg);
             }
+        
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -167,7 +171,9 @@ namespace ProyectoVerano2
 
         private async void btnInsertarImg_Click(object sender, RoutedEventArgs e)
         {
+            insertoImagen = true;
             BD.InsertarImagen(imgEmpleado,lblUrl,insertoImagen);
+         
         }
 
         private BitmapImage ObtenerImgBBDD(DataTable dt, int id)
@@ -318,7 +324,8 @@ namespace ProyectoVerano2
                 listaParametrosImg.Add(BD.ObtenerParametro("@imgEmpleado", SqlDbType.VarBinary, ParameterDirection.Input, true, CambiarFotoParaBBDD().imagen));
                 BD.LanzarComandoSQLNonQuery(scriptImg, listaParametrosImg);
             }
-            insertoImagen = false;
+
+        insertoImagen = false;
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
         }
@@ -333,6 +340,7 @@ namespace ProyectoVerano2
         {
             Window crearTipoEmpleado = new CrearTipoEmpleado();
             crearTipoEmpleado.ShowDialog();
+            EnseniarTipoEmpleado(TiposEmpleado());
         }
 
         private string[] TiposEmpleado()
@@ -357,6 +365,7 @@ namespace ProyectoVerano2
         }
         private void EnseniarTipoEmpleado(string[] tipos)
         {
+            cbTipo.Items.Clear();
             for (int i = 0; i < tipos.Length; i++)
             {
                 cbTipo.Items.Add(tipos[i]);

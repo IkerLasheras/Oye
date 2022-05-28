@@ -28,7 +28,7 @@ namespace ProyectoVerano2
         {
             InitializeComponent();
             txtID.Text = "0";
-            EnseniarTipoEmpleadoEnPantalla();
+            EnseniarTipoBebidaEnPantalla();
 
         }
 
@@ -37,7 +37,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.IncrementarID(txtID);
-                EnseniarTipoEmpleadoEnPantalla();
+                EnseniarTipoBebidaEnPantalla();
             }
             catch (Exception ex)
             {
@@ -67,7 +67,7 @@ namespace ProyectoVerano2
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
         }
     
-    private void EnseniarTipoEmpleadoEnPantalla()
+    private void EnseniarTipoBebidaEnPantalla()
         {
             int id = Int32.Parse(txtID.Text);
             string script = "SELECT * FROM dbo.TipoBebida;";
@@ -99,7 +99,7 @@ namespace ProyectoVerano2
             try
             {
                 BD.DisminuirID(txtID);
-                EnseniarTipoEmpleadoEnPantalla();
+                EnseniarTipoBebidaEnPantalla();
             }
             catch (Exception ex)
             {
@@ -116,7 +116,7 @@ namespace ProyectoVerano2
         }
         private void btnCambiar_Click(object sender, RoutedEventArgs e)
         {
-            string script = "UPDATE [dbo].[TiposBebida]" +
+            string script = "UPDATE [dbo].[TipoBebida]" +
                 " SET [nombre] = @nombre " +
                 "WHERE idTipoBebida = @idTipoBebida;";
 
@@ -124,6 +124,7 @@ namespace ProyectoVerano2
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
 
             listaParametros.Add(BD.ObtenerParametro("@nombre", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
+            listaParametros.Add(BD.ObtenerParametro("@idTipoBebida", SqlDbType.Int, ParameterDirection.Input, false, Int32.Parse(txtID.Text)));
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
 

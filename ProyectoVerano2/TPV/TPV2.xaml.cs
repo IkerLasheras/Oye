@@ -140,55 +140,64 @@ namespace ProyectoVerano2.TPV
 
         private void lvSubTipos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string script = "";
-            char tipoVendido = 'x';
-            if(lvSubTipos.SelectedValue != null)
-            {
-                if (bebidas)
-                {
-                    script = "select idbebida, nombreBebida , Precio from bebidas where  nombreBebida = '" + lvSubTipos.SelectedValue.ToString().Split(" - ")[1].Replace(" ", String.Empty) + "'";
-                    tipoVendido = 'B';
+            //string script = "";
+            //char tipoVendido = 'x';
+            //if(lvSubTipos.SelectedValue != null)
+            //{
+            //    if (bebidas)
+            //    {
+            //        script = "select idbebida, nombreBebida , Precio from bebidas where  nombreBebida = '" + lvSubTipos.SelectedValue.ToString().Split(" - ")[1].Replace(" ", String.Empty) + "'";
+            //        tipoVendido = 'B';
 
-                }
-                else
-                {
-                    script = "select idPlato, nombrePlato , Precio from Platos where  nombrePlato  = '" + lvSubTipos.SelectedValue.ToString().Split(" - ")[1].Replace(" ", String.Empty) + "'";
-                    tipoVendido = 'C';
-                }
-                DataTable dt = new DataTable();
-                dt = BD.RellenarDataTable(dt, script);
+            //    }
+            //    else
+            //    {
+            //        script = "select idPlato, nombrePlato , Precio from Platos where  nombrePlato  = '" + lvSubTipos.SelectedValue.ToString().Split(" - ")[1].Replace(" ", String.Empty) + "'";
+            //        tipoVendido = 'P';
+            //    }
+            //    DataTable dt = new DataTable();
+            //    dt = BD.RellenarDataTable(dt, script);
 
-                Vendidos vendido = new Vendidos { ID = (int)dt.Rows[0][0], Nombre = (string)dt.Rows[0][1], Precio = float.Parse(dt.Rows[0][2].ToString()) , Tipo = tipoVendido};
+            //    Vendidos vendido = new Vendidos { ID = (int)dt.Rows[0][0], Nombre = (string)dt.Rows[0][1], Precio = float.Parse(dt.Rows[0][2].ToString()) , Tipo = tipoVendido};
 
-                dgVendido.Items.Add(vendido);
+            //    dgVendido.Items.Add(vendido);
 
-                lblTotal.Content =(float.Parse(lblTotal.Content.ToString()) + vendido.Precio).ToString();
-            }
+            //    lblTotal.Content =(Decimal.Parse(lblTotal.Content.ToString()) + (Decimal)vendido.Precio).ToString();
+            //}
 
           
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-           int id = BD.BuscarUltimoPedido();
-
-            insertarPedidoMesa(id);
-            insertarPedidos(id);
+          
 
             MessageBoxResult result = System.Windows.MessageBox.Show("¿Quieres guardar el Pedido?", "Pedido", MessageBoxButton.OKCancel);
             if(result.HasFlag(MessageBoxResult.OK))
             {
+                int id = BD.BuscarUltimoPedido();
+
+                insertarPedido(id);
+                insertarDescripcionPedido(id);
+
                 lblTotal.Content = 0;
                 dgVendido.Items.Clear();
                 cbEmpleado.SelectedIndex= -1;
                 cbMesa.SelectedIndex= -1;
 
             }
+            else
+            {
+                lblTotal.Content = 0;
+                dgVendido.Items.Clear();
+                cbEmpleado.SelectedIndex = -1;
+                cbMesa.SelectedIndex = -1;
+            }
         }
 
-        public void insertarPedidoMesa(int id)
+        public void insertarPedido(int id)
         {
-            string script = "INSERT INTO [dbo].[pedidoMesa] " +
+            string script = "INSERT INTO [dbo].[Pedidos] " +
                 "(" +
                  "[idMesa]," +
                  "[idEmpleado]," +
@@ -215,12 +224,12 @@ namespace ProyectoVerano2.TPV
 
         }
 
-        public void insertarPedidos(int id)
+        public void insertarDescripcionPedido(int id)
         {
 
           
 
-            string script = "INSERT INTO [dbo].[pedidos] " +
+            string script = "INSERT INTO [dbo].[DescripcionPedido] " +
                 "(" +
                  "[idPedido]," +
                  "[idVendido]," +
@@ -267,7 +276,7 @@ namespace ProyectoVerano2.TPV
         private string[] obtenerMesasDisponibles()
         {
             string script = "select idMesa from Mesas where disponible = 1;";
-            string scriptCantidadTipo = "select count(*) as cantidad from  Mesas";
+            string scriptCantidadTipo = "select count(*) as cantidad from  Mesas where disponible =1";
 
             DataTable dt2 = new DataTable();
             dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
@@ -298,6 +307,40 @@ namespace ProyectoVerano2.TPV
         {
             Window menu = new MainWindow();
             menu.ShowDialog();
+
+        }
+
+        private void lvSubTipos_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+         
+        }
+
+        private void lvSubTipos_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            string script = "";
+            char tipoVendido = 'x';
+            if (lvSubTipos.SelectedValue != null)
+            {
+                if (bebidas)
+                {
+                    script = "select idbebida, nombreBebida , Precio from bebidas where  nombreBebida = '" + lvSubTipos.SelectedValue.ToString().Split(" - ")[1].Replace(" ", String.Empty) + "'";
+                    tipoVendido = 'B';
+
+                }
+                else
+                {
+                    script = "select idPlato, nombrePlato , Precio from Platos where  nombrePlato  = '" + lvSubTipos.SelectedValue.ToString().Split(" - ")[1].Replace(" ", String.Empty) + "'";
+                    tipoVendido = 'P';
+                }
+                DataTable dt = new DataTable();
+                dt = BD.RellenarDataTable(dt, script);
+
+                Vendidos vendido = new Vendidos { ID = (int)dt.Rows[0][0], Nombre = (string)dt.Rows[0][1], Precio = float.Parse(dt.Rows[0][2].ToString()), Tipo = tipoVendido };
+
+                dgVendido.Items.Add(vendido);
+
+                lblTotal.Content = (Decimal.Parse(lblTotal.Content.ToString()) + (Decimal)vendido.Precio).ToString();
+            }
 
         }
     }

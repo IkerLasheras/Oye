@@ -30,10 +30,10 @@ namespace ProyectoVerano2.Productos
         public ListaProductos()
         {
             InitializeComponent();
-            EnseniarPlatos();
+            EnseniarProductos();
         }
 
-        private void EnseniarPlatos()
+        private void EnseniarProductos()
         {
             ObtenerCatalogoProductos obtenerCatalogoProductos = new ObtenerCatalogoProductos();
             List<Productos> lista = obtenerCatalogoProductos.GetProductosActives();
@@ -41,7 +41,7 @@ namespace ProyectoVerano2.Productos
             this.dtgProductos.ItemsSource = lista;
         }
 
-        private void dtgEmpleadpos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dtgProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(dtgProductos.SelectedIndex != -1)
             {
@@ -61,14 +61,14 @@ namespace ProyectoVerano2.Productos
             {
                 scriptBusquedaProductos = "SELECT * FROM dbo.Productos where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " like '" + txtValor.Text + "%';";
             }
-            else if(cbCampoBusqueda.SelectedItem == cbTipo)
+            else if(cbCampoBusqueda.SelectedItem == cbCategoria)
             {
                 scriptBusquedaProductos = "select * from Productos where CategoriaProducto = ( select idCategoria from Categorias where nombreCategoria like '" + txtValor.Text +"%'); ";
             }
             else {
                 scriptBusquedaProductos = "SELECT * FROM dbo.Productos where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";
             }
-            EnseniarPlatos();
+            EnseniarProductos();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

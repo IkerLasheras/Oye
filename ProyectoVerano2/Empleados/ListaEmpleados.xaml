@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoVerano2.Empleados"
         mc:Ignorable="d"
+        WindowStyle="None"
         Title="Window1" Height="800" Width="600">
     <Grid>
 
@@ -47,8 +48,8 @@
             <ComboBoxItem Name ="cbID" Tag ="ID" Content="idEmpleado" FontSize="24"/>
             <ComboBoxItem Name ="cbNombre" Tag="Nombre" Content="Nombre" FontSize="24"/>
             <ComboBoxItem Name ="cbApellido" Tag="Precio" Content="Apellido1" FontSize="24"/>
+            <ComboBoxItem Name ="cbDni" Tag="Dni" Content="Dni" FontSize="24"/>
             <ComboBoxItem Name ="cbTipo" Tag="Tipo" Content="TipoEmpleado" FontSize="24"/>
-            <ComboBoxItem Name ="cbDNI" Tag="Tipo" Content="TipoEmpleado" FontSize="24"/>
 
         </ComboBox>
 

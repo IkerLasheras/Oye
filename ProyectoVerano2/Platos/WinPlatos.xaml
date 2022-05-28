@@ -28,7 +28,7 @@
         <ListView x:Name="lvIngredientes" HorizontalAlignment="Left" Height="507" Margin="327,174,0,0" VerticalAlignment="Top" Width="501" >
 
         </ListView>
-        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="1330,502,0,0" VerticalAlignment="Top" Width="300" Height="50"/>
+        <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="1330,502,0,0" VerticalAlignment="Top" Width="300" Height="50" FontSize="24"/>
         <Button Content= "Crear tipo" x:Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="1629,502,0,0" VerticalAlignment="Top" Width="65" Click="btnCrearTipo_Click"/>
         <Button x:Name="btnAniadir" Content="Añadir" HorizontalAlignment="Left" Margin="335,0,0,293" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnAniadir_Click"/>
         <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="594,0,0,292" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnBorrar_Click"/>

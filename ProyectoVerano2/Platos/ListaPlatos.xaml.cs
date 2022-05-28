@@ -37,7 +37,7 @@ namespace ProyectoVerano2.Platos
             this.dtgPlatos.ItemsSource = lista;
         }
 
-        private void dtgEmpleadpos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dtgPlatos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(dtgPlatos.SelectedIndex != -1)
             {
@@ -59,7 +59,7 @@ namespace ProyectoVerano2.Platos
             }
             else if(cbCampoBusqueda.SelectedItem == cbTipo)
             {
-                scriptBusquedaPlatos = "select * from Platos where TipoPlatos = ( select idTipoPlato from TipoPlato where nombreTipo like '" + txtValor.Text +"%'); ";
+                scriptBusquedaPlatos = "select * from Platos where TipoPlato = ( select idTipoPlato from TipoPlatos where nombreTipo like '" + txtValor.Text +"%'); ";
             }
             else {
                 scriptBusquedaPlatos = "SELECT * FROM dbo.Platos where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";

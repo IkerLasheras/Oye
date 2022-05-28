@@ -86,7 +86,7 @@ namespace ProyectoVerano2
                 ", @ubicacion);";
                
 
-            string scriptImagen = "INSERT INTO [dbo].[Productos] ([imgProducto]) VALUES (@imgProducto) ;";
+            string scriptImagen = "UPDATE [dbo].[Productos] SET [imgProducto] = @imgProducto WHERE [idProducto] = @idProducto";
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
@@ -289,6 +289,8 @@ namespace ProyectoVerano2
         {
             Window crearTipoEmpleado = new CrearTipoEmpleado();
             crearTipoEmpleado.ShowDialog();
+            EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
+            EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
         }
 
         private string[] obtenerDataComboBox(string tabla ,string columnaNombre)
@@ -335,6 +337,7 @@ namespace ProyectoVerano2
         //}
         private void EnseniarComboBox(string[] tipos, ComboBox cb)
         {
+            cb.Items.Clear();
             for (int i = 0; i < tipos.Length; i++)
             {
                cb.Items.Add(tipos[i]);

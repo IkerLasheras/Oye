@@ -53,7 +53,7 @@ namespace ProyectoVerano2.Empleados
 
         private void Buscar()
         {
-            if (cbCampoBusqueda.SelectedItem == cbNombre || cbCampoBusqueda.SelectedItem == cbApellido || cbCampoBusqueda.SelectedItem == cbDNI)
+            if (cbCampoBusqueda.SelectedItem == cbNombre || cbCampoBusqueda.SelectedItem == cbApellido || cbCampoBusqueda.SelectedItem == cbDni)
             {
                 scriptBusquedaEmpleados = "SELECT * FROM dbo.Empleados where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " like '" + txtValor.Text + "%';";
             }

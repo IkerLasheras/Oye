@@ -89,7 +89,7 @@ namespace ProyectoVerano2
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void btnAnterior_Click(object sender, RoutedEventArgs e)

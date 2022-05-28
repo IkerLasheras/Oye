@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoVerano2.Platos"
         mc:Ignorable="d"
+        WindowStyle="None"
         Title="Window1" Height="800" Width="600">
     <Grid>
 
@@ -18,7 +19,7 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="4" x:Name="dtgPlatos" SelectionChanged="dtgEmpleadpos_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="True" CanUserDeleteRows="True" >
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="4" x:Name="dtgPlatos" SelectionChanged="dtgPlatos_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="True" CanUserDeleteRows="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ID" Header="ID" Binding="{Binding Path=ID}" Width="80" />
                 <DataGridTextColumn x:Name="Nombre" Header="Nombre" Binding="{Binding Path=NombrePlato}" Width="200"/>

@@ -31,10 +31,10 @@ namespace ProyectoVerano2.Proveedores
         public ListaProveedores()
         {
             InitializeComponent();
-            EnseniarPlatos();
+            EnseniarProveedores();
         }
 
-        private void EnseniarPlatos()
+        private void EnseniarProveedores()
         {
             ObtenerCatalogoProveedores obtenerCatalogoProveedores= new ObtenerCatalogoProveedores();
             List<Proveedores> lista = obtenerCatalogoProveedores.GetProveedoresActives();
@@ -42,7 +42,7 @@ namespace ProyectoVerano2.Proveedores
             this.dtgProveedores.ItemsSource = lista;
         }
 
-        private void dtgEmpleadpos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void dtgProveedores_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(dtgProveedores.SelectedIndex != -1)
             {
@@ -58,18 +58,18 @@ namespace ProyectoVerano2.Proveedores
 
         private void Buscar()
         {
-            if (cbCampoBusqueda.SelectedItem == cbNombre)
+            if (cbCampoBusqueda.SelectedItem == cbNombre || cbCampoBusqueda.SelectedItem == cbTelefono)
             {
-                scriptBusquedaProveedor = "SELECT * FROM dbo.Proveedor where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " like '" + txtValor.Text + "%';";
+                scriptBusquedaProveedor = "SELECT * FROM dbo.Proveedores where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " like '" + txtValor.Text + "%';";
             }
-            else if(cbCampoBusqueda.SelectedItem == cbTipo)
+            else if(cbCampoBusqueda.SelectedItem == cbCategoria)
             {
-                scriptBusquedaProveedor = "select * from Proveedor where categoriaProveedor = ( select idCategoria from Categorias where nombreCategoria like '" + txtValor.Text +"%'); ";
+                scriptBusquedaProveedor = "select * from Proveedores where categoriaProveedor = ( select idCategoria from Categorias where nombreCategoria like '" + txtValor.Text +"%'); ";
             }
             else {
-                scriptBusquedaProveedor = "SELECT * FROM dbo.Proveedor where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";
+                scriptBusquedaProveedor = "SELECT * FROM dbo.Proveedores where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";
             }
-            EnseniarPlatos();
+            EnseniarProveedores();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

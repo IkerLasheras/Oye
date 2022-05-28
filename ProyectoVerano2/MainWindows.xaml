@@ -6,14 +6,16 @@
         xmlns:local="clr-namespace:ProyectoVerano2"
         mc:Ignorable="d"
         WindowStyle="None"
-        Title="MainWindow" Width="1920" Height="1080" WindowState="Maximized" HorizontalContentAlignment="Stretch"><Grid>
-    <Button x:Name="btnWinAniadirEmpleados" Content="EMPLEADOS" HorizontalAlignment="Left" Margin="283,165,0,0" VerticalAlignment="Top" Click="btnWinAniadirEmpleados_Click" Height="194" Width="235" FontSize="24"/>
-    <Button x:Name="btnWinAniadirpProductos" Content="PRODUCTOS" HorizontalAlignment="Left" Margin="789,165,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinAniadirpProductos_Click"/>
-    <Button x:Name="Salir" Content="Salir" HorizontalAlignment="Left" Height="51" Margin="1616,940,0,0" VerticalAlignment="Top" Width="176" Click="Salir_Click"/>
-    <Button x:Name="btnWinaniadirPlatos" Content="PLATOS" HorizontalAlignment="Left" Margin="1393,165,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirPlatos_Click"/>
-    <Button x:Name="btnWinaniadirBebidas" Content="BEBIDAS" HorizontalAlignment="Left" Margin="1393,502,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirBebidas_Click"/>
-    <Button x:Name="btnWinaniadirProveedor" Content="PROVEEDORES" HorizontalAlignment="Left" Margin="787,505,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirProveedor_Click"/>
-    <Button x:Name="btnWinaniadirTPV" Content="TPV" HorizontalAlignment="Left" Margin="283,492,0,0" VerticalAlignment="Top" Height="194" Width="235" FontSize="24" Click="btnWinaniadirTPV_Click"/>
+        Title="MainWindow" Width="1920" Height="1080" WindowState="Maximized" HorizontalContentAlignment="Stretch">
+    <Grid>
+        <Button x:Name="btnWinAniadirEmpleados" Content="EMPLEADOS" HorizontalAlignment="Left" Margin="310,127,0,0" VerticalAlignment="Top" Click="btnWinAniadirEmpleados_Click" Height="100" Width="200" FontSize="24"/>
+        <Button x:Name="btnWinAniadirpProductos" Content="PRODUCTOS" Margin="0,127,311,0" VerticalAlignment="Top" Height="100" FontSize="24" Click="btnWinAniadirpProductos_Click" HorizontalAlignment="Right" Width="200"/>
+        <Button x:Name="Salir" Content="Salir" Margin="0,931,55,69" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="220" Click="Salir_Click"/>
+        <Button x:Name="btnWinaniadirPlatos" Content="PLATOS" HorizontalAlignment="Left" Margin="310,340,0,0" VerticalAlignment="Top" Height="100" Width="200" FontSize="24" Click="btnWinaniadirPlatos_Click"/>
+        <Button x:Name="btnWinaniadirBebidas" Content="BEBIDAS" Margin="0,340,0,0" VerticalAlignment="Top" Height="100" FontSize="24" Click="btnWinaniadirBebidas_Click" HorizontalAlignment="Center" Width="200"/>
+        <Button x:Name="btnWinaniadirProveedor" Content="PROVEEDORES" Margin="859,127,861,0" VerticalAlignment="Top" Height="100" FontSize="24" Click="btnWinaniadirProveedor_Click"/>
+        <Button x:Name="btnWinaniadirTPV" Content="TPV" Margin="681,586,680,0" VerticalAlignment="Top" Height="249" FontSize="64" Click="btnWinaniadirTPV_Click"/>
+        <Button x:Name="btnWinaniadirMesas" Content="MESAS" Margin="0,340,310,0" VerticalAlignment="Top" Height="100" FontSize="24" Click="btnWinaniadirMesas_Click" HorizontalAlignment="Right" Width="200"/>
 
-</Grid>
+    </Grid>
 </Window>

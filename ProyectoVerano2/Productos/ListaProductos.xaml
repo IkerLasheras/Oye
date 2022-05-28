@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoVerano2.Productos"
         mc:Ignorable="d"
+        WindowStyle="None"
         Title="Window1" Height="800" Width="600">
     <Grid>
 
@@ -18,12 +19,12 @@
             <ColumnDefinition Width="*"/>
 
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Row="0" Grid.ColumnSpan="4" x:Name="dtgProductos" SelectionChanged="dtgEmpleadpos_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="True" CanUserDeleteRows="True" >
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="4" x:Name="dtgProductos" SelectionChanged="dtgProductos_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="True" CanUserDeleteRows="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="ID" Header="ID" Binding="{Binding Path=ID}" Width="80" />
                 <DataGridTextColumn x:Name="Nombre" Header="Nombre" Binding="{Binding Path=NombreProducto}" Width="200"/>
-                <DataGridTextColumn x:Name="Apellido" Header="Precio" Binding="{Binding Path=CantidadStock}" Width="100"/>
-                <DataGridTextColumn x:Name="Tipo" Header="Tipo" Binding="{Binding Path=CategoriaProducto}" Width="*"/>
+                <DataGridTextColumn x:Name="Apellido" Header="Stock" Binding="{Binding Path=CantidadStock}" Width="100"/>
+                <DataGridTextColumn x:Name="Categoria" Header="Categoria" Binding="{Binding Path=CategoriaProducto}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -43,10 +44,10 @@
             Height="50" FontSize="24"
             >
 
-            <ComboBoxItem Name ="cbID" Tag ="ID" Content="idPlato" FontSize="24"/>
-            <ComboBoxItem Name ="cbNombre" Tag="Nombre" Content="NombrePlato" FontSize="24"/>
-            <ComboBoxItem Name ="cbPrecio" Tag="Precio" Content="Precio" FontSize="24"/>
-            <ComboBoxItem Name ="cbTipo" Tag="Tipo" Content="TipoPlato" FontSize="24"/>
+            <ComboBoxItem Name ="cbID" Tag ="ID" Content="idProducto" FontSize="24"/>
+            <ComboBoxItem Name ="cbNombre" Tag="Nombre" Content="NombreProducto" FontSize="24"/>
+            <ComboBoxItem Name ="cbStock" Tag="Stock" Content="CantidadStock" FontSize="24"/>
+            <ComboBoxItem Name ="cbCategoria" Tag="Categoria" Content="CategoriaProducto" FontSize="24"/>
             
         </ComboBox> 
         

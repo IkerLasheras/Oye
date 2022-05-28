@@ -23,7 +23,6 @@ namespace ProyectoVerano2
     /// </summary>
     public partial class WinTipoPlato : Window
     {
-        bool insertoImagen = false;
         public WinTipoPlato()
         {
             InitializeComponent();

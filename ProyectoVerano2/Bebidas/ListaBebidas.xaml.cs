@@ -62,7 +62,7 @@ namespace ProyectoVerano2.Bebidas
             }
             else if(cbCampoBusqueda.SelectedItem == cbTipoBebida)
             {
-                scriptBusquedaBebidas = "select * from bebidas where tipobebida = ( select idTipoEmpleado from TipoEmpleado where nombreTipoBebida like '" + txtValor.Text +"%'); ";
+                scriptBusquedaBebidas = "select * from bebidas where tipobebida = ( select idTipoBebida from TipoBebida where nombre like '" + txtValor.Text +"%'); ";
             }
             else {
                 scriptBusquedaBebidas = "SELECT * FROM dbo.bebidas where " + cbCampoBusqueda.SelectedValue.ToString().Split(" ")[1] + " = " + txtValor.Text + ";";

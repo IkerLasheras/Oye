@@ -65,9 +65,15 @@ namespace ProyectoVerano2
 
         private void btnWinaniadirTPV_Click(object sender, RoutedEventArgs e)
         {
-            Window winTPV = new TPV.TPV();
+            Window winTPV = new TPV.TPV2();
             winTPV.ShowDialog();
 
+        }
+
+        private void btnWinaniadirMesas_Click(object sender, RoutedEventArgs e)
+        {
+            Window winMesas = new WinMesas();
+            winMesas.ShowDialog();
         }
     }
 }
