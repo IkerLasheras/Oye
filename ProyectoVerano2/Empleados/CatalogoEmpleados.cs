@@ -10,13 +10,15 @@ namespace ProyectoVerano2.Empleados
 {
      class CatalogoEmpleados
     {
+        /// <summary>
+        /// Realiza las consultas para obtener la informacion de todos los Empleados y recorre una por una añadiendo su informacion a una lista de empleados
+        /// </summary>
+        /// <returns>lista de Empleados</returns>
         public List<Empleados> GetEmpleadosActives()
         {
             string script = "SELECT * FROM dbo.Empleados;";
             DataTable dt = new DataTable();
             dt = BD.RellenarDataTable(dt, Lista.scriptBusquedaEmpleados);
-
-           
 
             List<Empleados> lstEmpleados = new List<Empleados>();
             for(int i = 0; i < dt.Rows.Count; i++) {

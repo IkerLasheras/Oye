@@ -20,7 +20,11 @@ namespace ProyectoVerano2
     /// </summary>
     public partial class WinInsertarEmpleados : Window
     {
-
+        /// <summary>
+        /// Inicializa los componentes, rellena el TextView del ID con un 0, 
+        /// Rellena los TextBoxes con la informacion de este ID usando el metodo de EneniarEnPantalla(), 
+        /// Enseña todos los tipos Bebidas en el comboBox. 
+        /// </summary>
         public WinInsertarEmpleados()
         {
             
@@ -30,37 +34,17 @@ namespace ProyectoVerano2
                 txtID.Text = "0";
 
             }
-
             EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
-            EnseniarTipoEmpleado(TiposEmpleado());
-
-            
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.TipoEmpleado" , "nombreTipoEmpleado"),cbTipo);
         }
 
         bool insertoImagen = false;
-        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                BD.IncrementarID(txtID);
-                EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
-            }
-            catch (Exception ex)
-            {
-                BD.DisminuirID(txtID);
-            }
-        }
 
-        private TextBox GetTxtID()
-        {
-            return txtID;
-        }
-
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-        
+        /// <summary>
+        /// Recoge los Datos de los TextBoxes y se insertan en la base de datos.
+        /// En el caso que se vaya a insertar una imagen. Se hace una modificacion en la base de datos
+        /// con el mismo valor de ID que el insertado para asi insertar la imagen.
+        /// </summary>
         public void InsertarDatosBBDD()
         {
             string comandMod =
@@ -96,7 +80,6 @@ namespace ProyectoVerano2
                 ", @tipoEmpleado" +
                 ", @cuentaCredito" +
                 ", @fechIncicioContrato);";
-
 
             string scriptImg = "UPDATE [dbo].[Empleados] SET [imgEmpleado] = @imgEmpleado WHERE idEmpleado = @idEmpleadoImg";
 
@@ -142,15 +125,10 @@ namespace ProyectoVerano2
         
         }
 
-        private void btnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            InsertarDatosBBDD();
-            insertoImagen = false;
-
-            BD.NoEnseniarBoton(btnGuardar);
-            BD.EnseniarBoton(btnCambiar);
-        }
-
+        /// <summary>
+        /// Coge el contenido de la etiqueta url y lo coloca en el Path del control de imagen.
+        /// </summary>
+        /// <returns>Devuelbe una imagen</returns>
         private ImageClass CambiarFotoParaBBDD()
         {
             ImageClass images = new ImageClass();
@@ -169,16 +147,14 @@ namespace ProyectoVerano2
             return images;
         }
 
-        private async void btnInsertarImg_Click(object sender, RoutedEventArgs e)
-        {
-            insertoImagen = true;
-            BD.InsertarImagen(imgEmpleado,lblUrl,insertoImagen);
-         
-        }
-
+        /// <summary>
+        /// Obtiene imagen desde la base de datos para así poder imprimirla en pantalla
+        /// </summary>
+        /// <param name="dt">DataTable en la que se encuentra la Imagen de la bebida </param>
+        /// <param name="id">Id de la bebida que queremos obtener la imagen</param>
+        /// <returns>Objeto de mapa de Bits</returns>
         private BitmapImage ObtenerImgBBDD(DataTable dt, int id)
         {
-
             ImageClass images = new ImageClass();
             if (!Convert.IsDBNull(dt.Rows[id]["imgEmpleado"]))
             {
@@ -201,6 +177,10 @@ namespace ProyectoVerano2
             }
         }
 
+        /// <summary>
+        /// Rellena los Tex Boxes con la información de un id dado
+        /// </summary>
+        /// <param name="id">Id del empleado a mostrar en pantalla</param>
         public void EnseniarEmpleadoEnPantalla(int id)
         {
             txtID.Text = id.ToString();
@@ -235,17 +215,9 @@ namespace ProyectoVerano2
             }
         }
 
-        private void btnNuevo_Click(object sender, RoutedEventArgs e)
-        {
-            BD.BuscarIDMax("idEmpleado", "Empleados" , txtID);
-            vaciarCeldas();
-
-            btnGuardar.IsEnabled = true;
-            btnGuardar.Visibility = Visibility.Visible;
-            btnCambiar.IsEnabled = false;
-            btnCambiar.Visibility = Visibility.Collapsed;
-        }
-
+        /// <summary>
+        /// Deja vacios todo los controles excepto el del ID
+        /// </summary>
         private void vaciarCeldas()
         {
             TextBox[] textBoxes = { txtNombre, txtApellidos, txtLocalidad, txtCP, txtEmail, txtDireccion,txtFIBAN, txtMovil, txtDni };
@@ -258,19 +230,9 @@ namespace ProyectoVerano2
             cbTipo.SelectedIndex = 0;
         }
 
-        private void btnAnterior_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                BD.DisminuirID(txtID);
-                EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
-            }
-            catch (Exception ex)
-            {
-                txtID.Text = "0";
-            }
-        }
-
+        /// <summary>
+        /// Realiza el Update los datos de la base de datos dependiendo del id que aparece en su TextBox
+        /// </summary>
         private void UploadEmpleado()
         {
             string script = "UPDATE [dbo].[Empleados]" +
@@ -330,48 +292,82 @@ namespace ProyectoVerano2
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
         }
 
+        /// <summary>
+        /// Abre nueva ventana para crear un nuevo tipo de Empleado.
+        /// Al cerrar esta, se mostrara el los tipos en el Combobox de nuevo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCrearTipo_Click(object sender, RoutedEventArgs e)
+        {
+            Window crearTipoEmpleado = new CrearTipoEmpleado();
+            crearTipoEmpleado.ShowDialog();
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.TipoEmpleado", "nombreTipoEmpleado"), cbTipo);
+        }
+
+        /// <summary>
+        /// Evento de click en el boton de cambiar, Realiza la modificacion de la pase de datos mediante el metodo de Modificar()
+        /// </summary>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCambiar_Click(object sender, RoutedEventArgs e)
         {
             UploadEmpleado();
             insertoImagen = false;
         }
 
-        private void btnCrearTipo_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Cambia el valor booleano de insertoImagen (Se usará para el control de insercción de imagen),
+        /// Realiza la insercción mediante el metodo de InsertarImagen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void btnInsertarImg_Click(object sender, RoutedEventArgs e)
         {
-            Window crearTipoEmpleado = new CrearTipoEmpleado();
-            crearTipoEmpleado.ShowDialog();
-            EnseniarTipoEmpleado(TiposEmpleado());
+            insertoImagen = true;
+            BD.InsertarImagen(imgEmpleado, lblUrl, insertoImagen);
+
         }
 
-        private string[] TiposEmpleado()
+        /// <summary>
+        /// Evento de click en el boton de nuevo, realiza una consulta a la BBDD del maximo ID mediante el metodo BuscarIdmax
+        /// , borra el contenido de los TextBoxes e intercambia el boton de grabar por el de cambiar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            string script = "select nombreTipoEmpleado from tipoEmpleado";
-            string scriptCantidadTipo = "select count(*) as cantidad from TipoEmpleado";
+            BD.BuscarIDMax("idEmpleado", "Empleados", txtID);
+            vaciarCeldas();
 
-            DataTable dt2 = new DataTable();
-            dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
-            int cantidadTipos = (int)dt2.Rows[0]["cantidad"];
-
-            string[] tipos = new string[cantidadTipos];
-
-            DataTable dt = new DataTable();
-            dt = BD.RellenarDataTable(dt, script);
-            
-            for(int i = 0; i<cantidadTipos; i++)
-            {
-                tipos[i] = (string)dt.Rows[i]["nombreTipoEmpleado"];
-            }
-            return tipos;
-        }
-        private void EnseniarTipoEmpleado(string[] tipos)
-        {
-            cbTipo.Items.Clear();
-            for (int i = 0; i < tipos.Length; i++)
-            {
-                cbTipo.Items.Add(tipos[i]);
-            }
+            btnGuardar.IsEnabled = true;
+            btnGuardar.Visibility = Visibility.Visible;
+            btnCambiar.IsEnabled = false;
+            btnCambiar.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Evento de click en el boton de Guardar, realiza la insercción de los los datos mediante el metodo InsertarDatosBBDD()
+        /// Intercambia los botones Cambiar y Guardar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+            InsertarDatosBBDD();
+            insertoImagen = false;
+
+            BD.NoEnseniarBoton(btnGuardar);
+            BD.EnseniarBoton(btnCambiar);
+        }
+
+        /// <summary>
+        /// Evento de click del boton Listado. Abre la ventana de listas, al cerrar esta se rellenan
+        /// los TextBoxes dependiendo del ID de ListaEmpleados
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnListado_Click(object sender, RoutedEventArgs e)
         {
             Window listado = new Lista();
@@ -379,6 +375,54 @@ namespace ProyectoVerano2
 
             EnseniarEmpleadoEnPantalla(Empleados.Lista.id);
 
+
         }
+
+        /// <summary>
+        /// Evento de click en el boton de Salir. Cierra la ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        /// <summary>
+        /// Evento de click en el boton de siguiente. Incrementa el id mediante el metodo IncrementarID() 
+        /// y rellena los textBoxes con la informaciónd e dicho Id con el metodo de EnseniaEmpleadoEnPantalla 
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BD.IncrementarID(txtID);
+                EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
+            }
+            catch (Exception ex)
+            {
+                BD.DisminuirID(txtID);
+            }
+        }
+
+        /// <summary>
+        /// Evento de click en el boton de Anterior. Disminuye el id mediante el mediante el metodo DisminuirID()
+        /// y rellena los textBoxes con la informaciónd e dicho Id con el metodo de EnseniarEnPantalla 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAnterior_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BD.DisminuirID(txtID);
+                EnseniarEmpleadoEnPantalla(Int32.Parse(txtID.Text));
+            }
+            catch (Exception ex)
+            {
+                txtID.Text = "0";
+            }
+        }
+
+
     }
 }

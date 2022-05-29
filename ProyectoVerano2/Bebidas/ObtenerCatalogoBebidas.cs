@@ -8,7 +8,11 @@ namespace ProyectoVerano2.Bebidas
 {
      class ObtenerCatalogoMesas
     {
-        public List<Mesas> GetBebidasActives()
+        /// <summary>
+        /// Devuelbe el la lista que Devuelve el metodo GetBebidasActives() de la clase catalogoBebidas.
+        /// </summary>
+        /// <returns>GetBebidasActives() de la clase catalogoBebidas.</returns>
+        public List<Bebida> GetBebidasActives()
         {
             CatalogoBebidas catalogoBebidas = new CatalogoBebidas();
 

@@ -128,7 +128,7 @@ namespace ProyectoVerano2
             List<SqlParameter> listaParametrosImg = new List<SqlParameter>();
 
             listaParametros.Add(BD.ObtenerParametro("@nombreUbicacion", SqlDbType.NChar, ParameterDirection.Input, false, txtNombre.Text));
-            listaParametros.Add(BD.ObtenerParametro("@descripcionUbicacion", SqlDbType.Decimal, ParameterDirection.Input, false, Decimal.Parse(txtDescripcion.Text)));
+            listaParametros.Add(BD.ObtenerParametro("@descripcionUbicacion", SqlDbType.NChar, ParameterDirection.Input, false, txtDescripcion.Text.ToString()));
 
             BD.LanzarComandoSQLNonQuery(script, listaParametros);
 

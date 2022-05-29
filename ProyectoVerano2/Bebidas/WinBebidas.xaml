@@ -13,9 +13,9 @@
         <Button x:Name="btnInsertarImg" Content="INSERTAR IMAGEN" HorizontalAlignment="Left" Margin="100,270,0,0" VerticalAlignment="Top" Height="35" Width="150" Click="btnInsertarImg_Click" TabIndex="6"/>
         <Button x:Name="btnBorrarImg" Content="BORRAR IMAGEN" HorizontalAlignment="Left" Margin="100,315,0,0" VerticalAlignment="Top" Height="35" Width="150" TabIndex="7"/>
         <Label x:Name="lblId" Content="Id" HorizontalAlignment="Left" Margin="560,303,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="608,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False" TabIndex="1"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="608,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False" TabIndex="1" AutomationProperties.ItemType="" MaxLength="3"/>
         <Label x:Name="lblNombre" Content="Nombre*" HorizontalAlignment="Left" Margin="922,306,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="1047,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="1047,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2" MaxLength="21"/>
         <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnNuevo_Click" TabIndex="11"/>
         <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnListado_Click" TabIndex="12"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click"/>
@@ -27,7 +27,7 @@
         <ComboBox x:Name="cbTipo" HorizontalAlignment="Left" Margin="1022,587,0,0" VerticalAlignment="Top" Width="300" Height="50" FontSize="24" TabIndex="4"/>
         <Button Content= "Crear tipo" x:Name="btnCrearTipo" HorizontalAlignment="Left" Height="50" Margin="1321,587,0,0" VerticalAlignment="Top" Width="65" Click="btnCrearTipo_Click" TabIndex="5"/>
         <Label x:Name="lblPrecio" Content="Precio" HorizontalAlignment="Left" Margin="496,597,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="599,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="3"/>
+        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Margin="599,593,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="3" MaxLength="6"/>
         <Label x:Name="lblUrl" Content="" HorizontalAlignment="Left" Margin="210,768,0,0" VerticalAlignment="Top" IsEnabled="False" Opacity="0"/>
     </Grid>
 </Window>

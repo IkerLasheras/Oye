@@ -22,8 +22,6 @@ namespace ProyectoVerano2
 
         public WinPlatos()
         {
-
-         
             InitializeComponent();
             if (txtID.Text == "")
             {
@@ -31,11 +29,7 @@ namespace ProyectoVerano2
             }
             txtID.Text = "0";
             EnseniarEnPantalla(Int32.Parse(txtID.Text));
-            EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
-            
-            
-
-
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
         }
 
         bool insertoImagen = false;
@@ -160,7 +154,6 @@ namespace ProyectoVerano2
                 return null;
             }
         }
-
         private void EnseniarEnPantalla(int id)
         {
             txtID.Text = id.ToString();
@@ -270,58 +263,7 @@ namespace ProyectoVerano2
         {
             Window crearTipoPlato = new WinTipoPlato();
             crearTipoPlato.ShowDialog();
-            EnseniarComboBox(obtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
-        }
-
-        private string[] obtenerDataComboBox(string tabla ,string columnaNombre)
-        {
-            string script = "select " + columnaNombre + " from " + tabla + ";";
-            string scriptCantidadTipo = "select count(*) as cantidad from "+tabla;
-
-            DataTable dt2 = new DataTable();
-            dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
-            int cantidadTipos = (int)dt2.Rows[0]["cantidad"];
-
-            string[] tipos = new string[cantidadTipos];
-
-            DataTable dt = new DataTable();
-            dt = BD.RellenarDataTable(dt, script);
-
-            for (int i = 0; i < cantidadTipos; i++)
-            {
-                tipos[i] = (string)dt.Rows[i][columnaNombre];
-            }
-            return tipos;
-
-        }
-
-        //private string[] TiposEmpleado()
-        //{
-        //    string script = "select nombreTipoEmpleado from tipoEmpleado";
-        //    string scriptCantidadTipo = "select count(*) as cantidad from TipoEmpleado";
-
-        //    DataTable dt2 = new DataTable();
-        //    dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
-        //    int cantidadTipos = (int)dt2.Rows[0]["cantidad"];
-
-        //    string[] tipos = new string[cantidadTipos];
-
-        //    DataTable dt = new DataTable();
-        //    dt = BD.RellenarDataTable(dt, script);
-            
-        //    for(int i = 0; i<cantidadTipos; i++)
-        //    {
-        //        tipos[i] = (string)dt.Rows[i]["nombreTipoEmpleado"];
-        //    }
-        //    return tipos;
-        //}
-        private void EnseniarComboBox(string[] tipos, ComboBox cb)
-        {
-            cb.Items.Clear();
-            for (int i = 0; i < tipos.Length; i++)
-            {
-               cb.Items.Add(tipos[i]);
-            }
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.TipoPlatos", "nombreTipo"), cbTipo);
         }
 
         private void btnListado_Click(object sender, RoutedEventArgs e)

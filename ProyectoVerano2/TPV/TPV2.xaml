@@ -19,7 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="200"/>
 
@@ -31,10 +31,17 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <ComboBox  Name="cbEmpleado" Margin="5,0,5,0" FontSize="32">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            </ComboBox>
-            <ComboBox Grid.Column="1" Name="cbMesa" Margin="5,0,5,0" FontSize="32"/>
+            <Label Content="Empleados" HorizontalAlignment="Center"/>
+            <ComboBox Grid.Row="1" Name="cbEmpleado" Margin="5,0,5,0" FontSize="32"/>
+
+
+            <Label Grid.Column="1" Content="Mesas" HorizontalAlignment="Center"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" Name="cbMesa" Margin="5,0,5,0" FontSize="32"/>
         </Grid>
 
 
@@ -43,11 +50,8 @@
 
         <Label Content="TIPOS" FontSize="32" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center"/>
         <Label Content="SUBTIPOS" FontSize="32" Grid.Column="2" Grid.Row="2" HorizontalContentAlignment="Center"/>
-        <ListView x:Name="lvTipos" Grid.Column="1" Grid.Row="3" Margin="10,0,10,0" FontSize="32" MouseDoubleClick="lvTipos_MouseDoubleClick" SelectionChanged="lvTipos_SelectionChanged">
-
-
-        </ListView>
-        <ListView x:Name="lvSubTipos" Grid.Column="2" Grid.Row="3" Margin="10,0,10,0" FontSize="32" SelectionChanged="lvSubTipos_SelectionChanged" PreviewMouseLeftButtonUp="lvSubTipos_PreviewMouseLeftButtonUp"/>
+        <ListView x:Name="lvTipos" Grid.Column="1" Grid.Row="3" Margin="10,0,10,0" FontSize="32" SelectionChanged="lvTipos_SelectionChanged"/>
+        <ListView x:Name="lvSubTipos" Grid.Column="2" Grid.Row="3" Margin="10,0,10,0" FontSize="32" PreviewMouseLeftButtonUp="lvSubTipos_PreviewMouseLeftButtonUp"/>
         <Grid Grid.Row="3">
             <DataGrid Name="dgVendido">
                 <DataGrid.Columns>
@@ -71,6 +75,7 @@
         <Label x:Name="lblTotal" 
             Grid.Row="1"
             Content="0"
+           
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="34"

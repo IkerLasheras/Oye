@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProyectoVerano2.Empleados
 {
-    internal class Empleados
+    /// <summary>
+    /// Crea objeto Empleados
+    /// </summary>
+    public class Empleados
     {
 
         public int ID { get; set; }

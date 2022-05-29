@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Class Name="ProyectoVerano2.Mesas.CatalogoMesas" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Mesas\CatalogoMesas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Mesas.ListaMesas" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAJAQAAAAAAgAAAAAAAAAACAAAAAAAAgA=</HashCode>
+      <FileName>Mesas\ListaMesas.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Mesas.Mesas" Collapsed="true">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mesas\Mesas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Mesas.ObtenerCatalogoMesas" Collapsed="true">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Mesas\ObtenerCatalogoMesas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.WinMesas" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACAAAACAADAAACAAAAAAIAAAAAAAAFAAAAAAAAEA=</HashCode>
+      <FileName>Mesas\WinMesas.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.239" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinPlatos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAASBAACDAAHAASCAAAAAAIAAAAAAAAFAAAAAAKAMA=</HashCode>
+      <FileName>Platos\WinPlatos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinTipoPlato" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACAQAACAABAAAAAAAAAAAAAAAAAAAEgAAAAAAAEA=</HashCode>
+      <FileName>Platos\WinTipoPlato.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.CrearTipoEmpleado" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACAQAACAABAAAAAAQAAAAAAAAAAAAEAAAAAAAAEA=</HashCode>
+      <FileName>Empleados\CrearTipoEmpleado.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinInsertarEmpleados" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAASBAAAAAAjAAQAAgAAAAAAAAAAAAAFAAAAAACAMA=</HashCode>
+      <FileName>Empleados\WinInsertarEmpleados.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinCategoriaProducto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAASBQAACAABAAQAAAAAAEAAAAAAAAAEAAAAAACAEA=</HashCode>
+      <FileName>Productos\WinCategoriaProducto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinProductos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAASBAAACQADAAQCAAAAAAIAAAAAAAAFAAAAAAKAEA=</HashCode>
+      <FileName>Productos\WinProductos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinUbicacionProducto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAACAQAACAABAAQAAAQAAAAAAAAAAAAEAAAAAAAAEA=</HashCode>
+      <FileName>Productos\WinUbicacionProducto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.WinProveedores" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAASBAAACQADAAQCAAAAAAIAAAAAAAAFAAAAAACAEA=</HashCode>
+      <FileName>Proveedores\WinProveedores.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.ImageClass" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAQAAAAAIAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImageClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIAAQAAAAAAAIAAAAAAgAAAAAAAAAAAAAQAAQEAA=</HashCode>
+      <FileName>MainWindows.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.CatalogoPlatos" Collapsed="true">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platos\CatalogoPlatos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.CatalogoProductos" Collapsed="true">
+    <Position X="11.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platos\CatalogoProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.ListaPlatos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAABAAQAAAAAgAAAAAAAAAACAAAAAEAAgA=</HashCode>
+      <FileName>Platos\ListaPlatos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.ListaProductos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAJAAAQAAAAgAAAAAEAAAACAAAAAEAAgE=</HashCode>
+      <FileName>Platos\ListaProductos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.ObtenerCatalogoPlatos" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platos\ObtenerCatalogoPlatos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.ObtenerCatalogoProductos" Collapsed="true">
+    <Position X="6" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platos\ObtenerCatalogoProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.Platos" Collapsed="true">
+    <Position X="11.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAgAAAAAAAAAAQAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platos\Platos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Platos.Productos" Collapsed="true">
+    <Position X="2.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAIAAAAAAAQAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Platos\Productos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Empleados.CatalogoEmpleados" Collapsed="true">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Empleados\CatalogoEmpleados.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Empleados.Empleados" Collapsed="true">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAgAAAAAEAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Empleados\Empleados.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Empleados.Lista" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAQAAAAJAAAAAAAAgAAAAAAAAAACAAAAAAAAgA=</HashCode>
+      <FileName>Empleados\ListaEmpleados.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Empleados.ObtenerCatalogoEmpleados" Collapsed="true">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Empleados\ObtenerCatalogoEmpleados.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.TPV.Lista" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TPV\Lista.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.TPV.TPV2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAgDAAABAAIgAgAAAAAAgIAAwBBAAAAAAA=</HashCode>
+      <FileName>TPV\TPV2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.TPV.Vendidos" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAgAAQAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>TPV\Vendidos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Productos.CatalogoProductos" Collapsed="true">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Productos\CatalogoProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Productos.ListaProductos" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAABAAAAAAAAgAAAAAAEAAACAAAAAAAAgE=</HashCode>
+      <FileName>Productos\ListaProductos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Productos.ObtenerCatalogoProductos" Collapsed="true">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Productos\ObtenerCatalogoProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Productos.Productos" Collapsed="true">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAIAAAAAAAQAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Productos\Productos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Proveedores.CatalogoProveedores" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Proveedores\CatalogoProveedores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Proveedores.ListaProveedores" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAABABAAAIAAAAgAAAAAAAAAACAAAAAAAAgA=</HashCode>
+      <FileName>Proveedores\ListaProveedores.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProyectoVerano2.Proveedores.ObtenerCatalogoProveedores" Collapsed="true">
+    <Position X="9.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Proveedores\ObtenerCatalogoProveedores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Proveedores.Proveedores" Collapsed="true">
+    <Position X="4.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAIAAAAAAgAgAAAAA=</HashCode>
+      <FileName>Proveedores\Proveedores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Bebidas.Bebida" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAwAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bebidas\Bebidas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Bebidas.CatalogoBebidas" Collapsed="true">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bebidas\CatalogoBebidas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoVerano2.Bebidas.ObtenerCatalogoMesas" Collapsed="true">
+    <Position X="0.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bebidas\ObtenerCatalogoBebidas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

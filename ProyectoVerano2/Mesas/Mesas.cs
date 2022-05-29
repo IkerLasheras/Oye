@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoVerano2.Mesas
 {
-    internal class Mesas
+
+    /// <summary>
+    /// Cres objeto Mesas
+    /// </summary>
+    public class Mesas
     {
 
         public int ID { get; set; }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
 using Proyecto;
 using ProyectoVerano2.Bebidas;
-using ProyectoVerano2.Mesas;
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,6 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using ProyectoVerano2.Mesas;
 
 namespace ProyectoVerano2
 {
@@ -47,10 +48,6 @@ namespace ProyectoVerano2
             }
         }
 
-        private TextBox GetTxtID()
-        {
-            return txtID;
-        }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -198,7 +195,7 @@ namespace ProyectoVerano2
 
         private void btnListado_Click(object sender, RoutedEventArgs e)
         {
-            Window lista = new Mesas.ListaMesas();
+            Window lista = new ListaMesas();
             lista.ShowDialog();
             EnseniarEnPantalla(ListaMesas.id); 
         }

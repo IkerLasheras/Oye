@@ -19,7 +19,6 @@ namespace ProyectoVerano2.Empleados
     /// </summary>
     public partial class Lista : Window
     {
-
         public static int id = 0;
         public static string scriptBusquedaEmpleados = "SELECT * FROM dbo.Empleados;";
         public Lista()
@@ -29,6 +28,9 @@ namespace ProyectoVerano2.Empleados
             EnseniarEmpleados();
         }
 
+        /// <summary>
+        /// Rellena el DataGrid con la informcacion obtenida en la clase obtenerCatalogoEmpleados
+        /// </summary>
         private void EnseniarEmpleados()
         {
             ObtenerCatalogoEmpleados obtenerCatalogoEmpleados = new ObtenerCatalogoEmpleados();
@@ -37,20 +39,26 @@ namespace ProyectoVerano2.Empleados
             this.dtgEmpleados.ItemsSource = lista;
         }
 
+        /// <summary>
+        /// Evento que se activa al cambiar el elemento seleccionado del DataGrid, Guarda el valor de Del ID de la bebida seleccionada y cierra la Ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtgEmpleadpos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(dtgEmpleados.SelectedIndex != -1)
             {
                 Empleados empleado = this.dtgEmpleados.SelectedItem as Empleados;
-
                 WinInsertarEmpleados winInsertarEmpleados = new WinInsertarEmpleados();
                 id = dtgEmpleados.SelectedIndex;
                 winInsertarEmpleados.EnseniarEmpleadoEnPantalla(empleado.ID);
                 Close();
-                
             }
         }
 
+        /// <summary>
+        /// Realiza busqueda dependiendo de lo elegido en el ComboBox y enseña las bebidas que coinciden con la consulta
+        /// </summary>
         private void Buscar()
         {
             if (cbCampoBusqueda.SelectedItem == cbNombre || cbCampoBusqueda.SelectedItem == cbApellido || cbCampoBusqueda.SelectedItem == cbDni)
@@ -68,11 +76,21 @@ namespace ProyectoVerano2.Empleados
             EnseniarEmpleados();
         }
 
+        /// <summary>
+        /// Evento de click en el boton Salir. Cierra la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Evento que se activa al levantar una tecla tras pulsarla, realiza las busquedas mediante el metdod Buscar().
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtValor_KeyUp(object sender, KeyEventArgs e)
         {
             Buscar();

@@ -19,11 +19,6 @@ namespace ProyectoVerano2.Bebidas
     /// </summary>
     public partial class ListaBebidas : Window
     {
-
-
-        // public static string campoBusqueda = cbCampoBusqueda.SelectedItem.ToString();
-
-
         public static int id = 0;
         public static string scriptBusquedaBebidas = "SELECT * FROM dbo.Bebidas;";
         public ListaBebidas()
@@ -32,28 +27,36 @@ namespace ProyectoVerano2.Bebidas
             EnseniarBebidas();
         }
 
+        /// <summary>
+        /// Rellena el DataGrid con la informcacion obtenida en la clase obtenerCatalogoBebidas
+        /// </summary>
         private void EnseniarBebidas()
         {
             ObtenerCatalogoMesas obtenerCatalogoBebidas = new ObtenerCatalogoMesas();
-            List<Mesas> lista = obtenerCatalogoBebidas.GetBebidasActives();
+            List<Bebida> lista = obtenerCatalogoBebidas.GetBebidasActives();
 
             this.dtgBebidas.ItemsSource = lista;
         }
 
+        /// <summary>
+        /// Evento que se activa al cambiar el elemento seleccionado del DataGrid, Guarda el valor de Del ID de la bebida seleccionada y cierra la Ventana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtgEmpleadpos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(dtgBebidas.SelectedIndex != -1)
             {
-                Mesas? bebida = this.dtgBebidas.SelectedItem as Mesas;
+                Bebida? bebida = this.dtgBebidas.SelectedItem as Bebida;
 
                 id = bebida.ID;
-                Close();
-                
+                Close();  
             }
         }
 
-
-
+        /// <summary>
+        /// Realiza busqueda dependiendo de lo elegido en el ComboBox y enseña las bebidas que coinciden con la consulta
+        /// </summary>
         private void Buscar()
         {
             if (cbCampoBusqueda.SelectedItem == cbNombre)
@@ -70,11 +73,21 @@ namespace ProyectoVerano2.Bebidas
             EnseniarBebidas();
         }
 
+        /// <summary>
+        /// Evento de click en el boton Salir. Cierra la ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Evento que se activa al levantar una tecla tras pulsarla, realiza las busquedas mediante el metdod Buscar().
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtValor_KeyUp(object sender, KeyEventArgs e)
         {
             Buscar();

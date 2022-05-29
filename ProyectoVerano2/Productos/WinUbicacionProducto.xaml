@@ -9,11 +9,11 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="122,198,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="303,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="303,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2" MaxLength="20"/>
         <Label x:Name="lblID" Content="ID" HorizontalAlignment="Left" Margin="190,114,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="303,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="1"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="303,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="1" MaxLength="2"/>
         <Label x:Name="lblDescripcion" Content="Descripcion" HorizontalAlignment="Left" Margin="83,278,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="303,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="3"/>
+        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="303,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="3" MaxLength="50"/>
         <Label x:Name="lblUbicacion" Content="Ubicación" Margin="289,32,289,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Button x:Name="btnSalir" Content="Salir" Margin="0,0,26,26" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="162" Click="btnSalir_Click" TabIndex="8"/>
         <Button x:Name="btnSiguiente" VerticalAlignment="Bottom" Height="43" FontSize="24" FontWeight="Bold" HorizontalAlignment="Right" Width="51" Margin="0,0,666,26" Content="&gt;&gt;" Click="btnSiguiente_Click" TabIndex="5"/>

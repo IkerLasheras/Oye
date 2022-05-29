@@ -9,9 +9,9 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="160,244,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtNombre" Margin="341,240,159,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2"/>
+        <TextBox x:Name="txtNombre" Margin="341,240,159,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2" MaxLength="20"/>
         <Label x:Name="lblID" Content="ID" HorizontalAlignment="Left" Margin="228,144,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="341,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" RenderTransformOrigin="0.5,0.5" TabIndex="1">
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="341,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" RenderTransformOrigin="0.5,0.5" TabIndex="1" MaxLength="2">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

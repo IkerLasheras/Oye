@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProyectoVerano2.Bebidas
 {
-    internal class Mesas
+    /// <summary>
+    /// Crea objeto Bebida
+    /// </summary>
+    public class Bebida
     {
-
         public int ID { get; set; }
 
         public string NombreBebida { get; set; }

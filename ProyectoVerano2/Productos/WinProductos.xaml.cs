@@ -30,10 +30,8 @@ namespace ProyectoVerano2
             }
            
             EnseniarEnPantalla(Int32.Parse(txtID.Text));
-            EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"),cbCategoria);
-            EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
-
-
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
         }
 
         bool insertoImagen = false;
@@ -67,8 +65,8 @@ namespace ProyectoVerano2
                 "INSERT INTO [dbo].[Productos] " +
                 "(" +
                 "[idProducto]," +
-                "[codigoProducto]," +
                 "[nombreProducto]," +
+                "[codigoProducto]," +
                 "[cantidadStock]," +
                 "[unidadMedida]," +
                 "[costeUnitario]" +
@@ -83,8 +81,7 @@ namespace ProyectoVerano2
                 ", @unidadMedida" +
                 ", @costeUnitario" +
                 ", @categoriaProducto" +
-                ", @ubicacion);";
-               
+                ", @ubicacion);";  
 
             string scriptImagen = "UPDATE [dbo].[Productos] SET [imgProducto] = @imgProducto WHERE [idProducto] = @idProducto";
 
@@ -285,75 +282,19 @@ namespace ProyectoVerano2
             insertoImagen = false;
         }
 
-        private void btnCrearTipo_Click(object sender, RoutedEventArgs e)
-        {
-            Window crearTipoEmpleado = new CrearTipoEmpleado();
-            crearTipoEmpleado.ShowDialog();
-            EnseniarComboBox(obtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
-            EnseniarComboBox(obtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
-        }
-
-        private string[] obtenerDataComboBox(string tabla ,string columnaNombre)
-        {
-            string script = "select " + columnaNombre + " from " + tabla + ";";
-            string scriptCantidadTipo = "select count(*) as cantidad from "+tabla;
-
-            DataTable dt2 = new DataTable();
-            dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
-            int cantidadTipos = (int)dt2.Rows[0]["cantidad"];
-
-            string[] tipos = new string[cantidadTipos];
-
-            DataTable dt = new DataTable();
-            dt = BD.RellenarDataTable(dt, script);
-
-            for (int i = 0; i < cantidadTipos; i++)
-            {
-                tipos[i] = (string)dt.Rows[i][columnaNombre];
-            }
-            return tipos;
-
-        }
-
-        //private string[] TiposEmpleado()
-        //{
-        //    string script = "select nombreTipoEmpleado from tipoEmpleado";
-        //    string scriptCantidadTipo = "select count(*) as cantidad from TipoEmpleado";
-
-        //    DataTable dt2 = new DataTable();
-        //    dt2 = BD.RellenarDataTable(dt2, scriptCantidadTipo);
-        //    int cantidadTipos = (int)dt2.Rows[0]["cantidad"];
-
-        //    string[] tipos = new string[cantidadTipos];
-
-        //    DataTable dt = new DataTable();
-        //    dt = BD.RellenarDataTable(dt, script);
-            
-        //    for(int i = 0; i<cantidadTipos; i++)
-        //    {
-        //        tipos[i] = (string)dt.Rows[i]["nombreTipoEmpleado"];
-        //    }
-        //    return tipos;
-        //}
-        private void EnseniarComboBox(string[] tipos, ComboBox cb)
-        {
-            cb.Items.Clear();
-            for (int i = 0; i < tipos.Length; i++)
-            {
-               cb.Items.Add(tipos[i]);
-            }
-        }
-
         private void btnCrearCategoria_Click(object sender, RoutedEventArgs e)
         {
             Window categoria = new WinCategoriaProducto();
             categoria.ShowDialog();
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.Categorias", "nombreCategoria"), cbCategoria);
+          
         }
 
         private void btnCrearUbicacion_Click(object sender, RoutedEventArgs e)
         {
             Window ubicacion = new WinUbicacionProducto();
             ubicacion.ShowDialog();
+            BD.EnseniarComboBox(BD.ObtenerDataComboBox("dbo.Ubicacion", "nombreUbicacion"), cbUbicacion);
         }
 
         private void btnListado_Click(object sender, RoutedEventArgs e)

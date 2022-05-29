@@ -59,8 +59,6 @@ namespace ProyectoVerano2.Platos
             }
         }
 
-
-
         private void Buscar()
         {
             if (cbCampoBusqueda.SelectedItem == cbNombre)

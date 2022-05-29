@@ -9,9 +9,9 @@
         Title="Insertar Empleado" Height="1080" Width="1920" WindowState="Maximized">
     <Grid>
         <Label x:Name="lblId" Content="Id" HorizontalAlignment="Left" Margin="863,233,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="948,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False" TabIndex="1"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="948,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" IsEnabled="False" TabIndex="1" MaxLength="2"/>
         <Label x:Name="lblUbicacion" Content="Ubicación" HorizontalAlignment="Left" Margin="774,415,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="txtUbicacion" HorizontalAlignment="Left" Margin="947,416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2"/>
+        <TextBox x:Name="txtUbicacion" HorizontalAlignment="Left" Margin="947,416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="401" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="24" TabIndex="2" MaxLength="50"/>
         <Button x:Name="btnNuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="660,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnNuevo_Click" TabIndex="7"/>
         <Button x:Name="btnListado" Content="Listado" HorizontalAlignment="Left" Margin="1140,0,0,100" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnListado_Click" TabIndex="8"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="1600,0,0,299" VerticalAlignment="Bottom" Height="80" Width="220" FontSize="24" FontWeight="Bold" Click="btnGuardar_Click"/>
